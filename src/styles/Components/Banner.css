@@ -1,0 +1,28 @@
+.banner-p::after {
+  content: '';
+  width: 2px;
+  height: 100%;
+  background-color: rgb(6, 122, 87);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+}
+
+.banner-profile{
+  background: linear-gradient(300deg , rgb(255, 6, 255), #350634 ) ;
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.banner-image{
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.bg-purple{
+  background: linear-gradient(30deg, purple, rgb(202, 16, 72)) ;
+  padding: 40px 10px;
+  top: 10%;
+  left: 35% ;
+}
