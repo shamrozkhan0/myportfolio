@@ -1,5 +1,6 @@
 import '../../styles/CommonStyles/PurpleButton.css'
 import { motion } from 'framer-motion';
+import { ArrowRight } from '@mui/icons-material';
 
 
 const PurpleButton = ({ Title, Icon, Class }) => {
@@ -12,7 +13,7 @@ const PurpleButton = ({ Title, Icon, Class }) => {
                             border-0 fw-semibold 
         ${Class}`} >
             {Title}
-            {Icon && <i className={Icon}></i>}
+            {Icon && {Icon}}
         </motion.button>
     )
 }
