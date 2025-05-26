@@ -3,13 +3,13 @@ import Navbar from './Components/layout/Navbar'
 import './App.css'
 import Banner from './Components/layout/Banner'
 import Nav from './Components/layout/Nav'
-import { createTheme, ThemeProvider } from '@mui/material'
+import { createTheme, ThemeProvider, CssBaseline } from '@mui/material'
 
 
 const theme = createTheme({
   palette: {
     text: {
-      primary: '#F8F9FA',
+      white: '#F8F9FA',
     },
   },
 
@@ -29,7 +29,7 @@ const theme = createTheme({
   }, 
 
   typography: {
-  fontFamily: `'Montserrat', sans-serif`,
+  fontFamily: ['Montserrat', 'sans-serif'].join(','),
   }
 });
 
@@ -40,6 +40,7 @@ function App() {
     <>
 
       <ThemeProvider theme={theme}>
+        <CssBaseline/>
         <Nav />
         {/* <Navbar/> */}
         <Banner />

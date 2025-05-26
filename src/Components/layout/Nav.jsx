@@ -1,32 +1,91 @@
-import React from 'react';
-import { AppBar, Container, Typography, Link, Box } from '@mui/material';
+import { useState, useEffect } from 'react';
+import { AppBar, Container, Typography, Link, Box, IconButton } from '@mui/material';
 import PurpleButton from '../common/PurpleButton';
-import { color } from 'framer-motion';
-import { ArrowRight } from '@mui/icons-material';
+import { Menu } from '@mui/icons-material';
+import { NavLink } from 'react-router-dom';
 
-const NavLinks = ['Home', 'Skills', "Projects"];
+
+const NavLinks = ['About', 'Skills', "Projects"];
+
+function NavbarLinks() {
+
+    const [closed , isClosed] = useState(false) // the navlink parent is closed
+
+
+    return (
+        <Box
+            sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'end',
+                gap: 4,
+                width: { sm: '100%', md: '50%' },
+                flexDirection:{sm:'column', md:'row'}
+
+            }}
+        >
+            {
+                NavLinks.map((title) => (
+                    <NavLink
+                        to={title === 'About' ? '/myportfolio' : `${title.toLowerCase()}`}
+                        key={title}
+                        style={
+                            ({ isActive }) => ({
+                                textDecoration: 'none',
+                                fontWeight: '500',
+                                color: isActive ? 'rgb(167, 21, 94)' : 'white',
+                                borderBottom: isActive ? '2px solid rgb(167, 21, 94)' : '2px solid transparent',
+                            })}
+                    >
+                        {title}
+                    </NavLink>
+                ))
+            }
+
+            <PurpleButton Title={"HIRE ME"} />
+
+        </Box >
+    )
+}
+
+
 
 
 const Nav = () => {
     return (
         <>
+            <AppBar elevation={0} component={'nav'} sx={{ bgcolor: "transparent", py: 4, position: 'static' }} >
+                <Container
+                    maxWidth="lg"
+                    sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        flexDirection: { sm: 'column', md: 'row' }
+                    }}
+                >
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent:'space-between', width: { sm: '100%', md: '50%' } }}>
 
-            <AppBar elevation={0} component={'nav'} sx={{ bgcolor: "transparent", py: 3, position: 'static' }} >
-                <Container maxWidth="lg">
-                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <Link
+                            href='/myportfolio/'
+                            sx={{ textDecoration: 'none', fontWeight: '600', fontSize: '30px' }}
+                            color='text.white'
+                        >
+                            Shamroz Khan
+                        </Link>
 
-                        <Link sx={{ textDecoration: 'none', fontWeight: 'Bold', fontSize: '30px' }} color='text.primary'>Shamroz Khan</Link>
 
-                        <Box sx={{ display:'flex', alignItems:'center' ,gap: 3}}>
-                            {
-                                NavLinks.map((title) => (
-                                    <Link sx={{textDecoration: 'none', }} fontWeight={"Bold"} key={title} color='text.primary' >{title} </Link>
-                                ))
-                            }
+                        <IconButton
+                            sx={{
+                                color: 'white',
+                                display: { sm: 'block', md: 'none' }
+                            }}
+                        >
+                            <Menu sx={{ fontSize: '30px' }} />
+                        </IconButton>
 
-                            <PurpleButton Title={"Hire Me"}  />
-                        </Box>
                     </Box>
+                    <NavbarLinks />
+
                 </Container>
             </AppBar>
 
@@ -35,4 +94,4 @@ const Nav = () => {
     )
 }
 
-export default Nav
+export default Nav;
