@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { AppBar, Container, Typography, Link, Box, IconButton } from '@mui/material';
+import { AppBar, Container, Link, Box, IconButton } from '@mui/material';
 import PurpleButton from '../common/PurpleButton';
 import { Menu } from '@mui/icons-material';
 import { NavLink } from 'react-router-dom';
@@ -7,68 +7,28 @@ import { NavLink } from 'react-router-dom';
 
 const NavLinks = ['About', 'Skills', "Projects"];
 
-function NavbarLinks() {
-
-    const [closed , isClosed] = useState(false) // the navlink parent is closed
-
-
-    return (
-        <Box
-            sx={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'end',
-                gap: 4,
-                width: { sm: '100%', md: '50%' },
-                flexDirection:{sm:'column', md:'row'}
-
-            }}
-        >
-            {
-                NavLinks.map((title) => (
-                    <NavLink
-                        to={title === 'About' ? '/myportfolio' : `${title.toLowerCase()}`}
-                        key={title}
-                        style={
-                            ({ isActive }) => ({
-                                textDecoration: 'none',
-                                fontWeight: '500',
-                                color: isActive ? 'rgb(167, 21, 94)' : 'white',
-                                borderBottom: isActive ? '2px solid rgb(167, 21, 94)' : '2px solid transparent',
-                            })}
-                    >
-                        {title}
-                    </NavLink>
-                ))
-            }
-
-            <PurpleButton Title={"HIRE ME"} />
-
-        </Box >
-    )
-}
-
-
 
 
 const Nav = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false) // the navlink parent is closed
+
     return (
         <>
-            <AppBar elevation={0} component={'nav'} sx={{ bgcolor: "transparent", py: 4, position: 'static' }} >
+            <AppBar elevation={0} component={'nav'} sx={{ bgcolor: "transparent", py:4 , position: 'static' }} >
                 <Container
                     maxWidth="lg"
                     sx={{
                         display: 'flex',
                         alignItems: 'center',
-                        flexDirection: { sm: 'column', md: 'row' }
+                        flexDirection: { xs: 'column', md: 'row' }
                     }}
                 >
-                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent:'space-between', width: { sm: '100%', md: '50%' } }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: { xs: '100%', md: '40%' } }}>
 
                         <Link
                             href='/myportfolio/'
-                            sx={{ textDecoration: 'none', fontWeight: '600', fontSize: '30px' }}
-                            color='text.white'
+                            sx={{ textDecoration: 'none', fontWeight: '600', fontSize: '30px', outline: 'none' }}
+                            color='text.primary'
                         >
                             Shamroz Khan
                         </Link>
@@ -77,14 +37,57 @@ const Nav = () => {
                         <IconButton
                             sx={{
                                 color: 'white',
-                                display: { sm: 'block', md: 'none' }
+                                display: { xs: 'block', md: 'none' }
                             }}
+                            onClick={() => setIsMenuOpen(prev => !prev)}
                         >
                             <Menu sx={{ fontSize: '30px' }} />
                         </IconButton>
 
                     </Box>
-                    <NavbarLinks />
+
+
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            alignItems: {xs:'start' , md: 'center'},
+                            justifyContent: 'end',
+                            gap: { xs: 3, md: 6 },
+                            width: { xs: '100%', md: '60%' },
+                            flexDirection: { xs: 'column', md: 'row' },
+                            height: { xs: isMenuOpen ? '210px' : '0px', md: '100%' },
+                            overflow: 'hidden',
+                            transition: 'all 0.5s ease',
+                            position: { xs: 'absolute', md: 'static' },
+                            top: '100px',
+                            py: isMenuOpen ? 2 : 0,
+                            px:3
+                        }}
+                        bgcolor={'background.primary'}
+                    >
+
+                        {
+                            NavLinks.map((title) => (
+                                <NavLink
+                                    to={title === 'About' ? '/myportfolio' : `${title.toLowerCase()}`}
+                                    key={title}
+                                    style={
+                                        ({ isActive }) => ({
+                                            textDecoration: 'none',
+                                            fontWeight: '500',
+                                            color: isActive ? 'rgb(255, 0, 128)' : 'white',
+                                            borderBottom: isActive ? '2px solid rgb(255, 0, 128)' : '2px solid transparent',
+                                            transition:'all .2s ease'
+                                        })}
+                                >
+                                    {title}
+                                </NavLink>
+                            ))
+                        }
+
+                        <PurpleButton  responsiveWidth={true} />
+
+                    </Box >
 
                 </Container>
             </AppBar>

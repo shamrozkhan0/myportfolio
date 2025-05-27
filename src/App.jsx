@@ -9,8 +9,14 @@ import { createTheme, ThemeProvider, CssBaseline } from '@mui/material'
 const theme = createTheme({
   palette: {
     text: {
-      white: '#F8F9FA',
+      primary: '#F8F9FA',
     },
+
+    background: {
+      primary: '#000814',
+      mainGradient: 'linear-gradient(30deg, purple, rgb(202, 16, 72))'
+    }
+
   },
 
   components: {
@@ -26,13 +32,14 @@ const theme = createTheme({
         },
       },
     },
-  }, 
+  },
 
   typography: {
-  fontFamily: ['Montserrat', 'sans-serif'].join(','),
+    fontFamily: ['Montserrat', 'sans-serif'].join(','),
   }
 });
 
+import PurpleButton from './Components/common/PurpleButton'
 
 function App() {
 
@@ -40,7 +47,7 @@ function App() {
     <>
 
       <ThemeProvider theme={theme}>
-        <CssBaseline/>
+        <CssBaseline />
         <Nav />
         {/* <Navbar/> */}
         <Banner />

@@ -1,17 +1,31 @@
-import '../../styles/CommonStyles/PurpleButton.css'
-import { motion } from 'framer-motion';
-import { ArrowRight } from '@mui/icons-material';
+import { Button } from '@mui/material';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-
-const PurpleButton = ({ Title, Icon, Class }) => {
+const PurpleButton = ({responsiveWidth}) => {
     return (
-        <motion.button            
-            className={`purple-btn d-flex align-items-center justify-content-center gap-2 px-3 py-2 rounded-5 text-white 
-                            border-0 fw-semibold 
-        ${Class}`} >
-            {Title}
-            {Icon && {Icon}}
-        </motion.button>
+        <Button
+            sx={{
+                backgroundImage: theme => theme.palette.background.mainGradient,
+                py: 1,
+                px: 2,
+                color: 'inherit',
+                borderRadius: '30px',
+                fontSize: '15px',
+                fontWeight: 600,
+                width: responsiveWidth ? {xs: '100%' , md: 'fit-content'} : 'fit-content',
+                '& .icon-rotate': {
+                    fontSize: '18px',
+                    transition: 'all 0.3s ease',
+                    transform: 'rotate(30deg)',
+                },
+                '&:hover .icon-rotate': {
+                    transform: 'rotate(30deg) translate(5px, 0px)',
+                }
+            }}
+            endIcon={<ArrowForwardIcon className="icon-rotate" />}
+        >
+            HIRE ME
+        </Button>
     )
 }
 
