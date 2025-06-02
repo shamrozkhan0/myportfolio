@@ -1,0 +1,3 @@
+.swiper-nav .swiper-wrapper{
+  flex-direction: column !important;  
+}

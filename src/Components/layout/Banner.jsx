@@ -1,82 +1,170 @@
-import React from 'react'
-import '../../styles/Components/Banner.css'
+import { Container, Box, Grid, IconButton, Typography } from '@mui/material';
+import { LinkedIn, GitHub, Download } from '@mui/icons-material';
 
-import BannerImage from '../../assets/images/shamroz.png'
-const LinkedinProfile = 'https://www.linkedin.com/in/shamrozkhan0/';
-const GithubProfile = 'https://github.com/shamrozkhan0/';
-const ShiftersProfile = 'https://shifters.dev/shamrozkhan';
-import ShiftersLogo from '../../assets/images/svg/shifters.svg'
+import BannerProfie from '@/assets/images/shamroz.avif'
+import ShifterIcon from '@/components/common/ShifterIconSVG';
 
-const Banner = () => {
+
+const BannerLinks = [
+  { icon: <Download sx={{ fontSize: 30 }} />, url: '../../assets/images/shamroz.png', top: 0, right: 10, isDownload: true },
+  { icon: <ShifterIcon size={30} />, url: 'https://shifters.dev/shamrozkhan', bottom: 0, right: 0 },
+  { icon: <LinkedIn sx={{ fontSize: 30 }} />, url: 'https://www.linkedin.com/in/shamrozkhan0/', top: 100, left: 30 },
+  { icon: <GitHub sx={{ fontSize: 30 }} />, url: 'https://github.com/shamrozkhan0/', bottom: 100, left: 30 },
+]
+
+const Bannerr = () => {
   return (
-    <section className='container ' aria-label='Shamroz introductions'>
-      <div className="row pt-100">
 
-        <div className="col-12 col-lg-6 d-flex flex-column gap-3 ps-3 p-md-5">
-          <h1 className='text-secondary '>Full Stack Java Developer</h1>
-          <div className="d-flex align-items-center">
-            <h2 className='fs-100 fw-semibold text-light ls-3 '>Shamroz Khan<span className='text-success '>.</span></h2>
-          </div>
-          <p className='banner-p border-start ps-3 ps-md-5 pe-100 text-secondary fw-medium fs-18 position-relative'>
-            Hey I am a full stack java developer working on Spring Boot stack budilding scalable,
-            robust application and secure API end points
-          </p>
-        </div>
+    <Container sx={{ py: { xs: 2, md: 5, lg: 10 }, flexDirection: { xs: 'column', lg: 'row' } }}>
+      <Grid container >
+
+        <Grid
+          item
+          size={{ xs: 12, md: 6 }}
+          sx={{
+            display: 'flex',
+            alignItems: 'start',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            gap: 3,
+            pl: { xs: 0, xl: 4 },
+          }}
+        >
+          <Typography variant='h2'
+            sx={{
+              fontSize: { xs: 25, md: '35px', lg: '40px' },
+              fontWeight: '500',
+            }}
+            color='GrayText'
+          >
+            Full Stack Java Developer
+          </Typography>
 
 
+          <Typography
+            variant='h1'
+            color='text.primary'
+            sx={{
+              fontSize: { xs: 70, sm: 100 },
+              fontWeight: '600',
+              letterSpacing: 1
+              // pr:{xs:5,  sm: 50 , md: 10 }
+            }}
+          >
+            Shamroz Khan
+          </Typography>
 
-        <div className="col-12 col-lg-6 d-flex align-items-center justify-content-end pt-5 position-relative">
-          <div className="row w-100">
+          <Typography
+            component={'p'}
+            variant='body1'
+            color='text.secondary'
+            sx={{
+              pl: 4,
+              pr: { xs: 0, sm: 20, md: 10, lg: 20 },
+              fontSize: { xs: 15, sm: 16, md: 17 },
+              borderLeft: '2px solid #1DBF73',
+            }}
+          >
+            Hey I am a full stack java developer working on the Spring Boot stack building scalable,
+            robust web-application and secure API end points
+          </Typography>
 
-            <div className="col-4 position-relative">
-              <a
-                href={BannerImage}
-                type='download'
-                className='d-flex flex-column gap-2 bg-purple align-items-center justify-content-center resume-button text-white
-                  border-0 fs-6 rounded-circle position-absolute z-1 fw-semibold alignment-cv-btn text-decoration-none '>
-                <i className='fas fa-download  fs-3'></i>
-              </a>
+        </Grid>
 
-              <a
-                href={LinkedinProfile}
-                target='_black'
-                className='d-flex flex-column gap-2 bg-purple align-items-center justify-content-center resume-button text-white
-                  border-0 fs-6 rounded-circle z-1 fw-semibold position-absolute alignment-linkedin-btn text-decoration-none'>
-                <i className='fa-brands fa-linkedin  fs-3'></i>
-              </a>
 
-              <a
-                href={"#?"}
-                className='bg-purple rounded-circle shifters-btn'
+        <Grid
+          component="section"
+          container
+          item
+          size={{ xs: 12, md: 6 }}
+          gap={{ xs: 5, lg: 0 }}
+          sx={{
+            pt: { xs: 10, md: 0 },
+            pr: { xs: 0, xl: 10 },
+            display: 'flex',
+            alignItems: { xs: 'center', md: 'center', lg: 'initial' },
+            justifyContent: 'end',
+            flexDirection: { xs: 'column', md: 'column-reverse', lg: 'row' },
+          }}
+        >
+
+
+          <Grid
+            item
+            size={{ xs: 12, lg: 4 }}
+            sx={{
+              position: 'relative',
+              display: 'flex',
+              flexDirection: { xs: 'row', lg: 'column' },
+              justifyContent: 'center',
+              gap: 5,
+            }}
+          >
+
+            {BannerLinks.map(({ icon, url, bottom, top, right, left, isDownload }, index) => (
+              <IconButton
+                key={index}
+                component='a'
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                {... (isDownload === true) && { download: true }}
+                sx={{
+                  background: (theme) => theme.palette.background.mainGradient,
+                  color: 'white',
+                  position: { xs: 'static', lg: 'absolute' },
+                  p: 1.5,
+                  ...(top !== undefined && { top: { xs: 'auto', lg: top } }),
+                  ...(left !== undefined && { left: { xs: 'auto', lg: left } }),
+                  ...(right !== undefined && { right: { xs: 'auto', lg: right } }),
+                  ...(bottom !== undefined && { bottom: { xs: 'auto', lg: bottom } }),
+                }}
               >
-                <img src={ShiftersLogo} alt="" className='' />
-              </a>
-
-              <a
-                href={GithubProfile}
-                target='_black'
-                className='d-flex flex-column gap-2 bg-purple align-items-center justify-content-center resume-button text-white
-                  border-0 fs-6 rounded-circle z-1 fw-semibold position-absolute alignment-github-btn text-decoration-none'>
-                <i class="fa-brands fa-github fs-3"></i>
-              </a>
-            </div>
+                {icon}
+              </IconButton>
+            ))}
+          </Grid>
 
 
-            <div
-              className="col-8">
-              <div className="w-100 h-100  banner-profile rounded-circle d-flex align-items-end justify-content-center overflow-hidden position-relative">
-                <img src={BannerImage} alt="" className='  banner-image' />
-              </div>
-            </div>
+          <Grid
+            item
+            size={{ xs: 12, lg: 8 }}
+            sx={{
+              backgroundImage: theme => theme.palette.background.mainGradient,
+              borderRadius: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              overflow: 'hidden',
+              maxWidth: '400px',
+              maxHeight: '400px',
+              boxShadow: '2px 2px 30px 5px rgba(147, 5, 114, 0.57)',
+            }}
+          >
 
 
-          </div>
-        </div>
+            <Box
+              component={'img'}
+              src={BannerProfie}
+              alt='Shamroz Khan Profile Photo'
+              sx={{
+                maxWidth: '400px',
+                maxHeight: '400px'
+              }}
+            >
 
-      </div>
-    </section>
+            </Box>
+
+          </Grid>
+
+        </Grid>
+
+
+      </Grid>
+    </Container >
+
+
   )
 }
 
-
-export default Banner
+export default Bannerr;

@@ -1,15 +1,16 @@
-import { useState } from 'react'
-import Navbar from './Components/layout/Navbar'
-import './App.css'
-import Banner from './Components/layout/Banner'
-import Nav from './Components/layout/Nav'
-import { createTheme, ThemeProvider, CssBaseline } from '@mui/material'
+import './App.css';
+import { createTheme, ThemeProvider, CssBaseline} from '@mui/material';
 
+import Navbar from '@/Components/layout/Navbar';
+import Banner from '@/Components/layout/Banner';
+import Marquee from '@/Components/layout/softSkillMarquee';
+import Skill from  '@/Components/layout/Skill';
 
 const theme = createTheme({
   palette: {
     text: {
       primary: '#F8F9FA',
+      secondary: '#6D767E',
     },
 
     background: {
@@ -34,12 +35,9 @@ const theme = createTheme({
     },
   },
 
-  typography: {
-    fontFamily: ['Montserrat', 'sans-serif'].join(','),
-  }
 });
 
-import PurpleButton from './Components/common/PurpleButton'
+
 
 function App() {
 
@@ -48,9 +46,10 @@ function App() {
 
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Nav />
-        {/* <Navbar/> */}
+        <Navbar />
         <Banner />
+        {/* <Marquee/> */}
+        <Skill />
       </ThemeProvider>
 
     </>
