@@ -1,3 +1,21 @@
 .swiper-nav .swiper-wrapper{
-  flex-direction: column !important;  
+    flex-direction: column !important;
+    gap: 50px;  
+
+}
+
+.swiper-nav .swiper-slide{
+    cursor: pointer;
+    width: 100% !important;
+
+}
+
+.swiper-slide-thumb-active h1{
+    color: white;
+    border-bottom: 10px solid #AC0A5F ;
+}
+
+
+.swiper .swiper-initialized{
+    background-color: red !important;
 }

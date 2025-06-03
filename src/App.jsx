@@ -1,10 +1,12 @@
 import './App.css';
 import { createTheme, ThemeProvider, CssBaseline} from '@mui/material';
 
+import CustomScroll from '@/Components/layout/Scroll'
 import Navbar from '@/Components/layout/Navbar';
 import Banner from '@/Components/layout/Banner';
 import Marquee from '@/Components/layout/softSkillMarquee';
 import Skill from  '@/Components/layout/Skill';
+
 
 const theme = createTheme({
   palette: {
@@ -17,7 +19,6 @@ const theme = createTheme({
       primary: '#000814',
       mainGradient: 'linear-gradient(30deg, purple, rgb(202, 16, 72))'
     }
-
   },
 
   components: {
@@ -46,10 +47,12 @@ function App() {
 
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <CustomScroll/>
         <Navbar />
         <Banner />
-        {/* <Marquee/> */}
         <Skill />
+        {/* <Marquee/> */}
+
       </ThemeProvider>
 
     </>

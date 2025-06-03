@@ -14,14 +14,14 @@ const Nav = () => {
     return (
         <>
             <AppBar
-             elevation={0}
-             component={'nav'}
-             aria-label='Shamroz Khan Portfolio Navbar'
-             sx={{
-                 bgcolor: "transparent",
-                 pt: { xs: 2, md: 4 },
-                 pb: {xs: 2, md: 5, lg:8 },
-                 position: 'static'
+                elevation={0}
+                component={'nav'}
+                aria-label='Shamroz Khan Portfolio Navbar'
+                sx={{
+                    bgcolor: "transparent",
+                    pt: { xs: 2, md: 4 },
+                    pb: { xs: 2, md: 5, lg: 8 },
+                    position: 'static'
                 }} >
                 <Container
                     maxWidth="lg"
