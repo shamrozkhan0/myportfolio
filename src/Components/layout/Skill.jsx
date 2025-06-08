@@ -1,260 +1,215 @@
-import { Container, Typography, Grid, Box, LinearProgress } from '@mui/material'
-import { useState, useEffect } from 'react';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
-// import 'swiper/css';
-import '../../styles/Components/Skill.css'
-import { ImagesearchRoller } from '@mui/icons-material';
+import {
+    Container,
+    Typography,
+    Grid,
+    Box,
+    LinearProgress,
+} from "@mui/material";
+import "../../styles/Components/Skill.css";
 
-const SkillImagesCDN = [
-    { title: 'html', cdn: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
-    { title: 'css', cdn: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
-    { title: 'javascript', cdn: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
-    { title: 'React', cdn: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
-    { title: 'bootstrap', cdn: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg' },
-    { title: 'material-ui', cdn: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg' },
-    { title: 'vite', cdn: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg' },
-]
+const FrontendSkillImagesCDN = [
+    {
+        title: "html-icon",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+    },
+    {
+        title: "css-icon",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
+    },
+    {
+        title: "javascript-icon",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+    },
+    {
+        title: "react-icon",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+    },
+    {
+        title: "bootstrap-icon",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg",
+    },
+    {
+        title: "material-ui-icon",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg",
+    },
+    {
+        title: "vite-icon",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg",
+    },
+    {
+        title: "vs-code-icon",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg",
+    },
+];
 
+const BackendSkillImagesCDN = [
+    {
+        title: "java-icon",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
+    },
+    {
+        title: "spring-icon",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg",
+    },
+    {
+        title: "nodejs-icon",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg",
+    },
+    {
+        title: "expressjs-icon",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg",
+    },
+    {
+        title: "intelij-logo",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg",
+    },
+    {
+        title: "maven-icon",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg",
+    },
+    {
+        title: "postman-icon",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg",
+    },
+];
 
-// const SkillSwiper = () => {
-
-//     const [thumbsSwiper, setThumbsSwiper] = useState(null);
-//     const skillType = ['Frontend', 'backend', 'Database'];
-
-
-//     const skillProgress = [
-//         { title: 'HTML / CSS', progress: 100 },
-//         { title: 'JavaScript', progress: 95 },
-//         { title: 'React', progress: 70 },
-//         { title: 'SEO', progress: 99 },
-//         { title: 'MUI / Bootstrap / Tailwind', progress: 100 },
-//     ]
-
-
-//     const [progress, setProgress] = useState(skillProgress.map(skill => 0));
-
-
-
-//     useEffect(() => {
-//         const interval = setInterval(() => {
-//             setProgress(prev =>
-//                 prev.map((val, index) => {
-//                     const target = skillProgress[index].progress;
-//                     if (val >= target) return target;
-//                     return val + 2;
-//                 })
-//             );
-//         }, 10);
-
-//         return () => clearInterval(interval);
-//     }, []);
-
-
-
-
-//     return (
-//         <>
-//             <Grid item size={3}>
-//                 <Swiper
-//                     item
-//                     onSwiper={setThumbsSwiper}
-//                     loop={true}
-//                     slidesPerView={3}
-//                     freeMode={true}
-//                     watchSlidesProgress={true}
-//                     modules={[FreeMode, Navigation, Thumbs]}
-//                     className="mySwiper swiper-nav"
-//                 >
-//                     {
-//                         skillType.map((title, index) => (
-//                             <SwiperSlide key={index} >
-//                                 <Typography
-//                                     component='h1'
-//                                     variant='h2'
-//                                     sx={{
-//                                         // mx: 6,
-//                                         textAlign: 'start',
-//                                         borderBottom: '10px solid transparent',
-//                                         transition: 'all ease .s'
-//                                     }}
-//                                     color='text.secondary'
-//                                 >
-//                                     {title}
-//                                 </Typography>
-//                             </SwiperSlide>
-//                         ))
-//                     }
-//                 </Swiper>
-
-//             </Grid >
-
-
-//             <Grid item size={6} sx={{display:'flex', alignItems:'center', justifyItems:'center'}} >
-//                 <Swiper
-//                     style={{
-//                         '--swiper-navigation-color': '#fff',
-//                         '--swiper-pagination-color': '#fff',
-//                     }}
-//                     loop={false}
-//                     spaceBetween={10}
-//                     navigation={false}
-//                     thumbs={{ swiper: thumbsSwiper }}
-//                     modules={[FreeMode, Navigation, Thumbs]}
-//                     className="mySwiper2"
-//                 >
-
-//                     <SwiperSlide>
-//                         {
-//                             skillProgress.map((skill, index) => (
-//                                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row', gap: 1, py: 2 }} key={index}>
-//                                     <Typography
-//                                     variant='h6'
-//                                     component='h3' 
-//                                      >
-//                                         {skill.title}
-//                                     </Typography>
-
-//                                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-//                                         <LinearProgress
-//                                             variant="determinate"
-//                                             value={progress[index]}
-//                                             sx={{
-//                                                 width: '400px',
-//                                                 height: 10,
-//                                                 borderRadius: 30,
-//                                                 bgcolor: 'white',
-//                                                 '& .MuiLinearProgress-bar': {
-//                                                     bgcolor: '#AC0A5F',
-//                                                 },
-//                                             }}
-//                                         />
-//                                         <Typography>{`${progress[index]}%`}</Typography>
-//                                     </Box>
-//                                 </Box>
-//                             ))
-//                         }
-//                     </SwiperSlide>
+const DatabaseSkillImageCDN = [
+    {
+        title: "mysql-icon",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg",
+    },
+    {
+        title: "postgresql-icon",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg",
+    },
+    {
+        title: "mongodb-icon",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg",
+    },
+    {
+        title: "hibernate-icon",
+        cdn: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/hibernate/hibernate-original-wordmark.svg",
+    },
+];
 
 
-//                     <SwiperSlide>
-//                         <Box>
-//                             <Typography>
-//                                 Shamroz Khan
-//                             </Typography>
-//                         </Box>
-//                     </SwiperSlide>
-
-//                     <SwiperSlide>
-//                         <Box>
-//                             <Typography>
-//                                 Shamroz Khan
-//                             </Typography>
-//                         </Box>
-//                     </SwiperSlide>
-//                 </Swiper>
-//             </Grid>
-//         </>
-//     )
-// }
-
-
-export function SkillsProgress() {
+function SkillsProgress({ heading, skill, gridSize }) {
     return (
         <>
-
             <Box
                 sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 1,
-                    border: '1px solid #B50C58',
+                    display: "flex",
+                    flexDirection: "column",
+                    // justifyContent:'center',
+                    gap: 4,
                     borderRadius: 5,
-                    p: 4
+                    px: { xs: 2, xl: 5 },
+                    py: 3,
+                    boxShadow: "0px 0px  100px rgba(173, 9, 94, 0.28) ",
+                    bgcolor: 'rgba(255, 255, 255, 0.12)',
+                    width: { xs: '100%', sm: 'auto' }
                 }}
             >
-
-                <Typography
-                    sx={{
-
-                        fontSize: 30
-                    }}
-                    component='h3' >
-                    Frontend
-                </Typography>
-
                 <Box
                     sx={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        gap: 4,
-                        pt: 3
+                        display: "flex",
+                        flexDirection: "row",
+                        gap: { xs: 3, md: 7 },
+                        flexWrap: 'wrap',
+                        justifyContent: 'center',
+                        alignItems: 'center',
                     }}
                 >
-
-                    {
-                        SkillImagesCDN.map((image) => (
-                            <Box
-                                key={image.title}
-                                component='img'
-                                src={image.cdn}
-                                aria-label={image.title}
-                                sx={{
-                                    width: '50px',
-                                    height: '50px'
-                                }}
-                            >
-                            </Box>
-
-                        ))
-                    }
-
+                    {skill.map((image) => (
+                        <Box
+                            key={image.title}
+                            component="img"
+                            src={image.cdn}
+                            alt={image.title}
+                            aria-label={image.title}
+                            sx={{
+                                width: { xs: '50px', md: "60px" },
+                                height: { xs: '50px', md: "60px" },
+                            }}
+                        ></Box>
+                    ))}
                 </Box>
-
-
             </Box>
-
-
         </>
-    )
+    );
 }
 
 
 
 const Skill = () => {
     return (
-
         <Container
-            component='section'
-            aria-label='Technical Skill of shamroz khan'
-            id='skill'
+            component="section"
+            aria-label="technical skills of shamroz khan"
+            id="skill"
             sx={{
-                py: { xs: 2, md: 5, lg: 10 },
+                display: 'flex',
+                flexDirection: 'column',
+                py: { xs: 10, md: 5, lg: 10 },
+                gap: { xs: 4, sm: 7 }
             }}
         >
-            <Typography
-                component={'h1'}
-                variant='h2'
+            <Box
                 sx={{
-                    fontWeight: '600'
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: "space-between",
+                    flexDirection: { xs: 'column-reverse', md: 'row' },
+                    gap: { xs: 5, md: 0 }
                 }}
             >
-                Technical Skills / Tools
-            </Typography>
+                <Typography
+                    component={"h1"}
+                    variant="h2"
+                    sx={{
+                        fontWeight: "600",
+                    }}
+                >
+                    Technical Skills & Tools
+                </Typography>
 
+                <Box
+                    sx={{
+                        display:{xs:'none', md:'flex'},
+                        border: '2px dashed green',
+                        width: '70%',
+                        height: '2px',
+                        mr: 4,
+                        fontSize: 50,
+                        position: 'relative',
+                        '&::after': {
+                            content: '"/"',
+                            position: 'absolute',
+                            top:-40,
+                            right: -30,
+                        }
 
-            <Grid container sx={{ py: 10, alignItems: 'center', justifyContent: 'space-between', px: 3 }} >
-                <SkillsProgress />
-                {/* <SkillSwiper /> */}
+                    }}
+                />
+
+            </Box>
+
+            <Grid
+                container
+                direction={"column"}
+                gap={2}
+                sx={{
+
+                    px: { xs: 0, md: 5, xl: 10 },
+                    alignItems: { xs: 'center', sm: 'center' }
+                }}
+            >
+                <SkillsProgress heading={"Frontend"} skill={FrontendSkillImagesCDN} />
+                <SkillsProgress heading={"Backend"} skill={BackendSkillImagesCDN} />
+                <SkillsProgress heading={"databases"} skill={DatabaseSkillImageCDN} />
             </Grid>
-
-
-
         </Container>
-
-
-
-    )
-}
+    );
+};
 
 export default Skill;

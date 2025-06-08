@@ -32,7 +32,7 @@ const Bannerr = () => {
         >
           <Typography variant='h2'
             sx={{
-              fontSize: { xs: 25, md: '35px', lg: '40px' },
+              fontSize: { xs: 30, sm: 45, lg: 40 },
               fontWeight: '500',
             }}
             color='GrayText'
@@ -47,8 +47,8 @@ const Bannerr = () => {
             sx={{
               fontSize: { xs: 70, sm: 100 },
               fontWeight: '600',
-              letterSpacing: 1
-              // pr:{xs:5,  sm: 50 , md: 10 }
+              letterSpacing: 1,
+              pr: { xs: 5, sm: 50, md: 10 }
             }}
           >
             Shamroz Khan
@@ -136,9 +136,9 @@ const Bannerr = () => {
               alignItems: 'center',
               justifyContent: 'center',
               overflow: 'hidden',
-              maxWidth: '400px',
-              maxHeight: '400px',
-              boxShadow: '2px 2px 30px 5px rgba(147, 5, 114, 0.57)',
+              maxWidth: { xs: '250px', md: '400px' },
+              maxHeight: { xs: '250px', md: '400px' },
+              boxShadow: '2px 2px 10px 0px  rgba(178, 11, 89, 0.54)',
             }}
           >
 
@@ -148,8 +148,8 @@ const Bannerr = () => {
               src={BannerProfie}
               alt='Shamroz Khan Profile Photo'
               sx={{
-                maxWidth: '400px',
-                maxHeight: '400px'
+                maxWidth: { xs: '250px', md: '400px' },
+                maxHeight: { xs: '250px', md: '400px' }
               }}
             >
 
