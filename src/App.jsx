@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import "./App.css";
 import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";
 
@@ -37,16 +38,17 @@ const theme = createTheme({
 });
 
 function App() {
+
+  const skillRef = useRef(null);
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <CustomScroll />
-        <Navbar />
+        <Navbar  onButtonClick={()=> skillRef.current.scrollIntoView({behavior: 'smooth'})}/>
         <Banner />
-        {/* <Divider/> */}
-        <Skill />
-        {/* <Marquee/> */}
+        <Skill ref={skillRef}   />
       </ThemeProvider>
     </>
   );

@@ -11,7 +11,6 @@ const Scroll = () => {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
             const scrollPercent = (scrollTop / docHeight) * 100;
-
             setScrollWidth(scrollPercent); // assuming this sets scroll progress
         }
 
@@ -32,6 +31,7 @@ const Scroll = () => {
                 top: 0,
                 left: 0,
                 height: 2,
+                zIndex:99,
                 width: `${scrollWidth}%`,
                 bgcolor: 'aqua'
             }}

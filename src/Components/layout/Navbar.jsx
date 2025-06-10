@@ -1,14 +1,13 @@
 import { useState } from 'react';
-import { AppBar, Container, Box, IconButton, Typography } from '@mui/material';
+import { AppBar, Container, Box, IconButton, Typography, Button } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 import { NavLink } from 'react-router-dom';
 
 import PurpleButton from '@/components/common/PurpleButton';
-
 const NavLinks = ['About', 'Skills', "Projects"];
 
 
-const Nav = () => {
+const Nav = ({onButtonClick}) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     return (
@@ -75,25 +74,25 @@ const Nav = () => {
                     >
 
                         {
-
                             NavLinks.map((title) => (
-                                <NavLink
-                                    to={title === 'About' ? '/myportfolio/' : `${title.toLowerCase()}`}
+                                <Button
                                     key={title}
-                                    style={
-                                        ({ isActive }) => ({
-                                            textDecoration: 'none',
-                                            fontWeight: '500',
-                                            color: isActive ? 'rgb(255, 0, 128)' : 'white',
-                                            borderBottom: isActive ? '2px solid rgb(255, 0, 128)' : '2px solid transparent',
-                                            transition: 'all .2s ease',
-                                            letterSpacing: 1,
-                                            fontSize: 18
-
-                                        })}
+                                    onClick={title.toLowerCase() == "skills"?  onButtonClick : console.log("blabla")}
+                                // to={title === 'About' ? '/myportfolio/' : `${title.toLowerCase()}`}
+                                // style={
+                                // ({ isActive }) => ({
+                                //     textDecoration: 'none',
+                                //     fontWeight: '500',
+                                //     color: isActive ? 'rgb(255, 0, 128)' : 'white',
+                                //     borderBottom: isActive ? '2px solid rgb(255, 0, 128)' : '2px solid transparent',
+                                //     transition: 'all .2s ease',
+                                //     letterSpacing: 1,
+                                //     fontSize: 18,
+                                // })
+                                // }
                                 >
                                     {title}
-                                </NavLink>
+                                </Button>
                             ))
                         }
 

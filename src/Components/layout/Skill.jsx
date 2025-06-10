@@ -141,17 +141,18 @@ function SkillsProgress({ heading, skill, gridSize }) {
 
 
 
-const Skill = () => {
+const Skill = ({ref}) => {
     return (
         <Container
             component="section"
             aria-label="technical skills of shamroz khan"
             id="skill"
+            ref={ref}
             sx={{
                 display: 'flex',
                 flexDirection: 'column',
                 py: { xs: 10, md: 5, lg: 10 },
-                gap: { xs: 4, sm: 7 }
+                gap: { xs: 4, sm: 7 },
             }}
         >
             <Box
