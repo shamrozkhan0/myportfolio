@@ -1,9 +1,7 @@
 import {
   Container,
-  Typography,
   Grid,
   Box,
-  LinearProgress,
 } from "@mui/material";
 import "../../styles/Components/Skill.css";
 import Heading from "../common/Heading";
@@ -100,7 +98,6 @@ function SkillsProgress({ heading, skill, gridSize }) {
         sx={{
           display: "flex",
           flexDirection: "column",
-          // justifyContent:'center',
           gap: 4,
           borderRadius: 5,
           px: { xs: 2, xl: 5 },
@@ -127,6 +124,7 @@ function SkillsProgress({ heading, skill, gridSize }) {
               src={image.cdn}
               alt={image.title}
               aria-label={image.title}
+              loading="lazy"
               sx={{
                 filter: image.title == "expressjs-icon" ? " invert(1)" : "none",
                 width: { xs: "50px", md: "60px" },
@@ -163,6 +161,7 @@ const Skill = ({ ref }) => {
         direction={"column"}
         gap={2}
         sx={{
+          pt:{xs:0 , md: 5},
           px: { xs: 0, md: 5, xl: 10 },
           alignItems: { xs: "center", sm: "center" },
         }}

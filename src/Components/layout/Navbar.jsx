@@ -13,121 +13,116 @@ import PurpleButton from "@/components/common/PurpleButton";
 
 const NavLinks = ["About", "Skills", "Projects"];
 
-const Nav = ({ activeSection, onButtonClick }) => {
+const Navbar = ({ activeSection, onButtonClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <>
-      <Container
-        component="nav"
-        maxWidth="lg"
+    <Container
+      component="nav"
+      maxWidth="lg"
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        flexDirection: { xs: "column", md: "row" },
+        bgcolor: "#000814",
+        borderRadius: { xs: 0, md: 10 },
+        py: 1,
+        position: 'sticky',
+        top: { xs: 0, md: 15 },
+        left: 0,
+        gap: 0,
+        zIndex: 1,
+      }}
+    >
+      <Box
         sx={{
           display: "flex",
           alignItems: "center",
-          flexDirection: { xs: "column", md: "row" },
-          bgcolor: "#000814",
-          // boxShadow: { xs: 0, md: ' 0px 0px 10px 0px rgba(255, 0, 64, 0.6)' },
-          borderRadius: { xs: 0, md: 10 },
-          py: 1,
-          position: 'sticky',
-          top: { xs: 0, md: 15 },
-          left: 0,
-          gap: 0,
-          zIndex: 1,
+          justifyContent: "space-between",
+          width: { xs: "100%", md: "30%" },
+        }}
+      >
+        <Typography
+          sx={{
+            textDecoration: "none",
+            fontWeight: "600",
+            fontSize: "30px",
+            outline: "none",
+          }}
+          color="text.primary"
+        >
+          Shamroz Khan
+        </Typography>
+
+        <IconButton
+          sx={{
+            color: "white",
+            display: { xs: "block", md: "none" },
+          }}
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+          aria-label="Toggle navigation menu"
+        >
+          <Menu sx={{ fontSize: "30px" }} />
+        </IconButton>
+      </Box>
+
+
+      <Box
+        sx={{
+          position: 'relative',
+          width: { xs: '100%', md: '70%' },
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'end',
         }}
       >
         <Box
           sx={{
+            position: { xs: "absolute", md: "static" },
             display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            width: { xs: "100%", md: "30%" },
+            alignItems: { xs: "start", md: "center" },
+            justifyContent: "end",
+            gap: { xs: 3, md: 6 },
+            width: "100%",
+            flexDirection: { xs: "column", md: "row" },
+            height: { xs: isMenuOpen ? "230px" : "0px", md: "100%" },
+            overflow: "hidden",
+            transition: "all 0.5s ease",
+            top: 0,
+            py: isMenuOpen ? 2 : 0,
+            px: { xs: 1, md: 0 },
+            bgcolor: "#000814",
           }}
         >
-          <Typography
-            sx={{
-              textDecoration: "none",
-              fontWeight: "600",
-              fontSize: "30px",
-              outline: "none",
-            }}
-            color="text.primary"
-          >
-            Shamroz Khan
-          </Typography>
 
-          <IconButton
-            sx={{
-              color: "white",
-              display: { xs: "block", md: "none" },
-            }}
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-            aria-label="Toggle navigation menu"
-          >
-            <Menu sx={{ fontSize: "30px" }} />
-          </IconButton>
+          {NavLinks.map((title) => (
+            <Button
+              key={title}
+              sx={{
+                color: activeSection == title.toLowerCase() ? "rgb(255, 0, 128)" : "white",
+                borderBottom: activeSection == title.toLowerCase() ? "1px solid rgb(255, 0, 128)" : "1px solid transparent",
+                fontSize: 16,
+                letterSpacing: 1,
+                p: 0,
+                borderRadius: 0,
+                m: 0,
+              }}
+              onClick={() => {
+                const key = title.toLowerCase();
+                if (onButtonClick[key]) onButtonClick[key]();
+              }}
+            >
+              <Typography variant="button">{title}</Typography>
+            </Button>
+          ))}
+
+          <PurpleButton responsiveWidth={true} Title="HIRE ME" />
         </Box>
+      </Box>
 
 
-        <Box
-          sx={{
-            position: 'relative',
-            width: { xs: '100%', md: '70%' },
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'end',
-          }}
-        >
-          <Box
-            sx={{
-              position: { xs: "absolute", md: "static" },
-              display: "flex",
-              alignItems: { xs: "start", md: "center" },
-              justifyContent: "end",
-              gap: { xs: 3, md: 6 },
-              width: "100%",
-              flexDirection: { xs: "column", md: "row" },
-              height: { xs: isMenuOpen ? "230px" : "0px", md: "100%" },
-              overflow: "hidden",
-              transition: "all 0.5s ease",
-              top: 0,
-              py: isMenuOpen ? 2 : 0,
-              px: { xs: 1, md: 0 },
-              bgcolor: "#000814",
-            }}
-          >
-
-            {NavLinks.map((title) => (
-              <Button
-                key={title}
-                sx={{
-                  color: activeSection == title.toLowerCase() ? "rgb(255, 0, 128)" : "white",
-                  borderBottom: activeSection == title.toLowerCase() ? "1px solid rgb(255, 0, 128)" : "1px solid transparent",
-                  fontSize: 16,
-                  letterSpacing: 1,
-                  textTransform: "capitalize",
-                  textAlign: 'start',
-                  p: 0,
-                  borderRadius: 0,
-                  m: 0,
-                }}
-                onClick={() => {
-                  const key = title.toLowerCase();
-                  if (onButtonClick[key]) onButtonClick[key]();
-                }}
-              >
-                {title}
-              </Button>
-            ))}
-
-            <PurpleButton responsiveWidth={true} Title="HIRE ME" />
-          </Box>
-        </Box>
-
-
-      </Container>
-    </>
+    </Container>
   );
 };
 
-export default Nav;
+export default Navbar;

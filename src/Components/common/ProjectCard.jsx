@@ -1,6 +1,5 @@
-import { Box, Grid, List, ListItem, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import LimlyDocxImage from "@/assets/images/limlydocx-login.png";
-import PurpleButton from "./PurpleButton";
 import CardButton from "./CardButton";
 
 const ProjectCard = ({ Heading, Headline, Features, Skill,ButtonLink }) => {
@@ -8,9 +7,10 @@ const ProjectCard = ({ Heading, Headline, Features, Skill,ButtonLink }) => {
         <>
             <Grid
                 item
-                size={4}
+                size={{xs:12 , md: 6, lg:4}}
                 sx={{
                     p: 1,
+                    height:"100%",
                 }}
             >
                 <Box
@@ -24,9 +24,10 @@ const ProjectCard = ({ Heading, Headline, Features, Skill,ButtonLink }) => {
                     <Box
                         component="img"
                         src={LimlyDocxImage}
+                        loading="lazy"
                         sx={{
-                            width: 434,
-                            height: 244,
+                            width:"100%",
+                            height:"100%",
                             borderRadius: "10px 10px 0 0",
                         }}
                     />

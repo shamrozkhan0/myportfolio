@@ -2,7 +2,7 @@ import { Link } from "@mui/material";
 import { GitHub } from "@mui/icons-material";
 
 const CardButton = ({ githubLink }) => {
-    return <Link target="_blank" target="_blank" rel="noopener noreferrer" sx={{
+    return <Link target="_blank"  rel="noopener noreferrer" sx={{
         backgroundImage: theme => theme.palette.background.mainGradient,
         py: 1,
         textAlign:"center",
@@ -12,9 +12,9 @@ const CardButton = ({ githubLink }) => {
         display:'flex',
         alignItems:'center',
         justifyContent:'center',
-        gap:2,
+        gap:1,
         borderRadius:1
-    }} href={githubLink}>Github <GitHub/></Link>;
+    }} href={githubLink}><GitHub/> Github</Link>;
 };
 
 export default CardButton;

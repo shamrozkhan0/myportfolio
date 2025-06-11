@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, Typography } from '@mui/material'
 
 const Heading = ({SectionHeading}) => {
@@ -17,6 +16,7 @@ const Heading = ({SectionHeading}) => {
                 variant="h2"
                 sx={{
                     fontWeight: "600",
+                    fontSize:{xs:50, md: 30}
                 }}
             >
                 {SectionHeading}

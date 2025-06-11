@@ -1,4 +1,3 @@
-import React from "react";
 import Heading from "../common/Heading";
 import { Container, Grid } from "@mui/material";
 import ProjectCard from "../common/ProjectCard";
@@ -35,7 +34,8 @@ const Projects = ({ ref }) => {
                 ref={ref}
                 aria-label="shamroz khan projects "
                 sx={{
-                    py: 10,
+                    pt: 5,
+                    pb: 10,
                     display: "flex",
                     flexDirection: "column",
                     gap: 10,
@@ -43,7 +43,7 @@ const Projects = ({ ref }) => {
             >
                 <Heading SectionHeading="Projects" />
 
-                <Grid container direction={"row"}>
+                <Grid sx={{pt:{xs:0 , md:3}}} container direction={"row"}>
 
                     <ProjectCard
                         Heading="LimlyDocx"

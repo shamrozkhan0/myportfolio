@@ -40,7 +40,6 @@ const Bannerr = ({ ref }) => {
         pt: { xs: 5, md: 15, lg: 15 },
         pb: { xs: 2, md: 5, lg: 10 },
         flexDirection: { xs: "column", lg: "row" },
-        // bgcolor:'aqua'
       }}
     >
       <Grid container>
@@ -74,7 +73,6 @@ const Bannerr = ({ ref }) => {
               fontSize: { xs: 70, sm: 100 },
               fontWeight: "600",
               letterSpacing: 1,
-              // pr: { xs: 5, sm: 50, md: 10 },
             }}
           >
             Shamroz Khan
@@ -119,7 +117,7 @@ const Bannerr = ({ ref }) => {
               position: "relative",
               display: "flex",
               flexDirection: { xs: "row", lg: "column" },
-              justifyContent: {xs:'center', md:"end"} ,
+              justifyContent: { xs: 'center', md: "end" },
               gap: 5,
             }}
           >
@@ -174,12 +172,12 @@ const Bannerr = ({ ref }) => {
             <Box
               component={"img"}
               src={BannerProfie}
-              alt="Shamroz Khan Profile Photo"
+              alt="Shamroz Khan Full Stack Java Developer Profile Picture"
               sx={{
                 maxWidth: { xs: "250px", md: "400px" },
                 maxHeight: { xs: "250px", md: "400px" },
               }}
-            ></Box>
+            />
           </Grid>
         </Grid>
       </Grid>
