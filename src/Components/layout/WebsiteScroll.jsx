@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Box } from '@mui/material'
 
-const Scroll = () => {
+/** 
+ * CustomScroll adds smooth scroll effects.
+ */
+const WebsiteScroll = () => {
 
     const [scrollWidth, setScrollWidth] = useState(0)
 
@@ -33,7 +36,7 @@ const Scroll = () => {
                 height: 2,
                 zIndex:99,
                 width: `${scrollWidth}%`,
-                bgcolor: 'aqua'
+                bgcolor: 'green'
             }}
         >
 
@@ -43,4 +46,4 @@ const Scroll = () => {
     )
 }
 
-export default Scroll
+export default WebsiteScroll

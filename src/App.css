@@ -1,14 +1,18 @@
 * {
-  padding: 0 ;
-  margin: 0 ;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
 body {
   background-color: #000814 !important;
-  font-family: 'Montserrat', 'sans-serif';
 }
 
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
   display: none;
+}
+
+.blabla {
+  border-radius: 376px;
+  background: url(../src/assets/images/limlydocx-login.png)lightgray -390.034px 0.5px / 209.095% 100% no-repeat;
 }

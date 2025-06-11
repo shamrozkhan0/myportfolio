@@ -1,108 +1,133 @@
-import { useState } from 'react';
-import { AppBar, Container, Box, IconButton, Typography, Button } from '@mui/material';
-import { Menu } from '@mui/icons-material';
-import { NavLink } from 'react-router-dom';
+import { useState } from "react";
+import {
+  AppBar,
+  Container,
+  Box,
+  IconButton,
+  Typography,
+  Button,
+} from "@mui/material";
 
-import PurpleButton from '@/components/common/PurpleButton';
-const NavLinks = ['About', 'Skills', "Projects"];
+import { Menu } from "@mui/icons-material";
+import PurpleButton from "@/components/common/PurpleButton";
+
+const NavLinks = ["About", "Skills", "Projects"];
+
+const Nav = ({ activeSection, onButtonClick }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  return (
+    <>
+      <Container
+        component="nav"
+        maxWidth="lg"
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          flexDirection: { xs: "column", md: "row" },
+          bgcolor: "#000814",
+          // boxShadow: { xs: 0, md: ' 0px 0px 10px 0px rgba(255, 0, 64, 0.6)' },
+          borderRadius: { xs: 0, md: 10 },
+          py: 1,
+          position: 'sticky',
+          top: { xs: 0, md: 15 },
+          left: 0,
+          gap: 0,
+          zIndex: 1,
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: { xs: "100%", md: "30%" },
+          }}
+        >
+          <Typography
+            sx={{
+              textDecoration: "none",
+              fontWeight: "600",
+              fontSize: "30px",
+              outline: "none",
+            }}
+            color="text.primary"
+          >
+            Shamroz Khan
+          </Typography>
+
+          <IconButton
+            sx={{
+              color: "white",
+              display: { xs: "block", md: "none" },
+            }}
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            aria-label="Toggle navigation menu"
+          >
+            <Menu sx={{ fontSize: "30px" }} />
+          </IconButton>
+        </Box>
 
 
-const Nav = ({onButtonClick}) => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
+        <Box
+          sx={{
+            position: 'relative',
+            width: { xs: '100%', md: '70%' },
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'end',
+          }}
+        >
+          <Box
+            sx={{
+              position: { xs: "absolute", md: "static" },
+              display: "flex",
+              alignItems: { xs: "start", md: "center" },
+              justifyContent: "end",
+              gap: { xs: 3, md: 6 },
+              width: "100%",
+              flexDirection: { xs: "column", md: "row" },
+              height: { xs: isMenuOpen ? "230px" : "0px", md: "100%" },
+              overflow: "hidden",
+              transition: "all 0.5s ease",
+              top: 0,
+              py: isMenuOpen ? 2 : 0,
+              px: { xs: 1, md: 0 },
+              bgcolor: "#000814",
+            }}
+          >
 
-    return (
-        <>
-            <AppBar
-                elevation={0}
-                component={'nav'}
-                aria-label='Shamroz Khan Portfolio Navbar'
+            {NavLinks.map((title) => (
+              <Button
+                key={title}
                 sx={{
-                    bgcolor: "transparent",
-                    pt: { xs: 2, md: 4 },
-                    pb: { xs: 2, md: 5, lg: 8 },
-                    position: 'static'
-                }} >
-                <Container
-                    maxWidth="lg"
-                    sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        flexDirection: { xs: 'column', md: 'row' }
-                    }}
-                >
-                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: { xs: '100%', md: '40%' } }}>
+                  color: activeSection == title.toLowerCase() ? "rgb(255, 0, 128)" : "white",
+                  borderBottom: activeSection == title.toLowerCase() ? "1px solid rgb(255, 0, 128)" : "1px solid transparent",
+                  fontSize: 16,
+                  letterSpacing: 1,
+                  textTransform: "capitalize",
+                  textAlign: 'start',
+                  p: 0,
+                  borderRadius: 0,
+                  m: 0,
+                }}
+                onClick={() => {
+                  const key = title.toLowerCase();
+                  if (onButtonClick[key]) onButtonClick[key]();
+                }}
+              >
+                {title}
+              </Button>
+            ))}
 
-                        <Typography
-                            sx={{ textDecoration: 'none', fontWeight: '600', fontSize: '30px', outline: 'none' }}
-                            color='text.primary'
-                        >
-                            Shamroz Khan
-                        </Typography>
-
-
-                        <IconButton
-                            sx={{
-                                color: 'white',
-                                display: { xs: 'block', md: 'none' }
-                            }}
-                            onClick={() => setIsMenuOpen(prev => !prev)}
-                            aria-label='Toggle navigation menu'
-                        >
-                            <Menu sx={{ fontSize: '30px' }} />
-                        </IconButton>
-
-                    </Box>
+            <PurpleButton responsiveWidth={true} Title="HIRE ME" />
+          </Box>
+        </Box>
 
 
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            alignItems: { xs: 'start', md: 'center' },
-                            justifyContent: 'end',
-                            gap: { xs: 3, md: 6 },
-                            width: { xs: '100%', md: '60%' },
-                            flexDirection: { xs: 'column', md: 'row' },
-                            height: { xs: isMenuOpen ? '210px' : '0px', md: '100%' },
-                            overflow: 'hidden',
-                            transition: 'all 0.5s ease',
-                            position: { xs: 'absolute', md: 'static' },
-                            top: 100,
-                            py: isMenuOpen ? 2 : 0,
-                            px: 3
-                        }}
-                        bgcolor={'background.primary'}
-                    >
-
-                        {
-                            NavLinks.map((title) => (
-                                <Button
-                                    key={title}
-                                    onClick={title.toLowerCase() == "skills"?  onButtonClick : console.log("blabla")}
-                                // to={title === 'About' ? '/myportfolio/' : `${title.toLowerCase()}`}
-                                // style={
-                                // ({ isActive }) => ({
-                                //     textDecoration: 'none',
-                                //     fontWeight: '500',
-                                //     color: isActive ? 'rgb(255, 0, 128)' : 'white',
-                                //     borderBottom: isActive ? '2px solid rgb(255, 0, 128)' : '2px solid transparent',
-                                //     transition: 'all .2s ease',
-                                //     letterSpacing: 1,
-                                //     fontSize: 18,
-                                // })
-                                // }
-                                >
-                                    {title}
-                                </Button>
-                            ))
-                        }
-
-                        <PurpleButton responsiveWidth={true} />
-
-                    </Box >
-                </Container>
-            </AppBar>
-        </>
-    )
-}
+      </Container>
+    </>
+  );
+};
 
 export default Nav;

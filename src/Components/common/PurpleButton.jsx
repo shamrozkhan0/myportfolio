@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-const PurpleButton = ({responsiveWidth}) => {
+const PurpleButton = ({responsiveWidth, Title}) => {
     return (
         <Button
             sx={{
@@ -24,7 +24,7 @@ const PurpleButton = ({responsiveWidth}) => {
             }}
             endIcon={<ArrowForwardIcon className="icon-rotate" />}
         >
-            HIRE ME
+            {Title}
         </Button>
     )
 }

@@ -1,54 +1,54 @@
-import { useRef, useEffect } from "react";
-import "./App.css";
-import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";
+import { useRef, useEffect, useState } from "react";
+import { ThemeProvider, CssBaseline } from "@mui/material";
 
-// import Divider from "@/Components/common/SectionDivider";
-import CustomScroll from "@/Components/layout/Scroll";
+import "./App.css";
+
+import Theme from "@/Components/theme/Theme";
+
+import WebsietScroll from "@/Components/layout/WebsiteScroll";
 import Navbar from "@/Components/layout/Navbar";
 import Banner from "@/Components/layout/Banner";
 import Skill from "@/Components/layout/Skill";
+import Projects from "./Components/layout/Projects";
+import WebsiteScroll from "./Components/layout/WebsiteScroll";
 
-const theme = createTheme({
-  palette: {
-    text: {
-      primary: "#F8F9FA",
-      secondary: "#6D767E",
-    },
-
-    background: {
-      primary: "#000814",
-      mainGradient: "linear-gradient(30deg, purple, rgb(202, 16, 72))",
-    },
-  },
-
-  components: {
-    MuiContainer: {
-      defaultProps: {
-        maxWidth: "lg",
-      },
-      styleOverrides: {
-        maxWidthLg: {
-          "@media (min-width: 1200px)": {
-            maxWidth: "1400px",
-          },
-        },
-      },
-    },
-  },
-});
 
 function App() {
-
+  const aboutRef = useRef(null);
   const skillRef = useRef(null);
+  const projectsRef = useRef(null);
+
+  const [activeSection, setActiveSection] = useState("about");
 
   return (
     <>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={Theme}>
         <CssBaseline />
-        <CustomScroll />
-        <Navbar  onButtonClick={()=> skillRef.current.scrollIntoView({behavior: 'smooth'})}/>
-        <Banner />
-        <Skill ref={skillRef}   />
+        
+        <WebsiteScroll />
+
+
+        <Navbar
+          activeSection={activeSection}
+          onButtonClick={{
+            about: () => {
+              aboutRef.current.scrollIntoView({ behavior: "smooth" });
+              setActiveSection("about");
+            },
+            skills: () => {
+              skillRef.current.scrollIntoView({ behavior: "smooth" }),
+                setActiveSection("skills");
+            },
+            projects: () => {
+              projectsRef.current.scrollIntoView({ behavior: "smooth" }),
+                setActiveSection("projects");
+            },
+          }}
+        />
+
+        <Banner ref={aboutRef} />
+        <Skill ref={skillRef} />
+        <Projects ref={projectsRef} />
       </ThemeProvider>
     </>
   );
