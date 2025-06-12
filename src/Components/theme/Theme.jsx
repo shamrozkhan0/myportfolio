@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
 
 const Theme = createTheme({
   palette: {
@@ -8,7 +8,6 @@ const Theme = createTheme({
     },
 
     background: {
-      // main: "#000814",
       mainGradient: "linear-gradient(30deg, purple, rgb(202, 16, 72))",
     },
   },

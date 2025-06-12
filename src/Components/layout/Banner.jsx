@@ -1,6 +1,16 @@
-import { Container, Box, Grid, IconButton, Typography } from "@mui/material";
-import { LinkedIn, GitHub, Download } from "@mui/icons-material";
+// MUI Components 
+import Container from "@mui/material/Container";
+import Box  from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 
+// MUI Icons (Socials)
+import LinkedIn  from "@mui/icons-material/LinkedIn";
+import GitHub  from "@mui/icons-material/GitHub";
+import Download from "@mui/icons-material/Download";
+
+// Custom Imports
 import BannerProfie from "@/assets/images/shamroz.avif";
 import ShifterIcon from "@/components/common/ShifterIconSVG";
 
@@ -35,6 +45,9 @@ const BannerLinks = [
 const Bannerr = ({ ref }) => {
   return (
     <Container
+      id="about"
+      component="section"
+      aria-label="About Section Of Shamroz Khan's Portfolio"
       ref={ref}
       sx={{
         pt: { xs: 5, md: 15, lg: 15 },
@@ -44,7 +57,6 @@ const Bannerr = ({ ref }) => {
     >
       <Grid container>
         <Grid
-          item
           size={{ xs: 12, md: 6 }}
           sx={{
             display: "flex",
@@ -98,7 +110,6 @@ const Bannerr = ({ ref }) => {
         <Grid
           component="section"
           container
-          item
           size={{ xs: 12, md: 6 }}
           gap={{ xs: 5, lg: 0 }}
           sx={{
@@ -111,7 +122,6 @@ const Bannerr = ({ ref }) => {
           }}
         >
           <Grid
-            item
             size={{ xs: 12, lg: 4 }}
             sx={{
               position: "relative",
@@ -155,7 +165,6 @@ const Bannerr = ({ ref }) => {
           </Grid>
 
           <Grid
-            item
             size={{ xs: 12, lg: 8 }}
             sx={{
               backgroundImage: (theme) => theme.palette.background.mainGradient,

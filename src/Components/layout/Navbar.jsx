@@ -1,14 +1,12 @@
 import { useState } from "react";
-import {
-  AppBar,
-  Container,
-  Box,
-  IconButton,
-  Typography,
-  Button,
-} from "@mui/material";
 
-import { Menu } from "@mui/icons-material";
+import Container from "@mui/material/Container";
+import Box  from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+
+import Menu  from "@mui/icons-material/Menu";
 import PurpleButton from "@/components/common/PurpleButton";
 
 const NavLinks = ["About", "Skills", "Projects"];
@@ -19,7 +17,7 @@ const Navbar = ({ activeSection, onButtonClick }) => {
   return (
     <Container
       component="nav"
-      maxWidth="lg"
+      // maxWidth="lg"
       sx={{
         display: "flex",
         alignItems: "center",

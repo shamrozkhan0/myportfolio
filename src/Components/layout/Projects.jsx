@@ -1,5 +1,10 @@
+// MUI Components
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+
+// Custom Imports
 import Heading from "../common/Heading";
-import { Container, Grid } from "@mui/material";
 import ProjectCard from "../common/ProjectCard";
 
 const LimlydocxData = {
@@ -8,10 +13,10 @@ const LimlydocxData = {
 
     Features: [
         "Dashboard",
-        "Can export in PDF or DOCX",
+        "Can export in PDF and DOCX",
         "Collaborative editing with friends",
         "TTS ( Text To Speech )",
-        "AI Bot ( Helps to write )",
+        "AI Bot ( Help's to write )",
     ],
 
     Skills: [
@@ -31,8 +36,10 @@ const Projects = ({ ref }) => {
     return (
         <>
             <Container
+                component="section"
+                id="projects"
                 ref={ref}
-                aria-label="shamroz khan projects "
+                aria-label="Shamroz Khan's Full-Stack Projects "
                 sx={{
                     pt: 5,
                     pb: 10,
@@ -43,7 +50,7 @@ const Projects = ({ ref }) => {
             >
                 <Heading SectionHeading="Projects" />
 
-                <Grid sx={{pt:{xs:0 , md:3}}} container direction={"row"}>
+                <Grid sx={{pt:{xs:0 , md:3, justifyContent:'start'}}} container direction={"row"}>
 
                     <ProjectCard
                         Heading="LimlyDocx"

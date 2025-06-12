@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Box } from '@mui/material'
+import Box  from '@mui/material/Box'
+
 
 /** 
  * CustomScroll adds smooth scroll effects.
@@ -7,7 +8,6 @@ import { Box } from '@mui/material'
 const WebsiteScroll = () => {
 
     const [scrollWidth, setScrollWidth] = useState(0)
-
 
     useEffect(() => {
         function handleScroll() {
@@ -24,11 +24,10 @@ const WebsiteScroll = () => {
         };
     }, []);
 
-
-
     return (
-
         <Box
+            component="header"
+            aria-label='Custom Webiste Vertical Scroll bar'
             sx={{
                 position: 'sticky',
                 top: 0,
@@ -38,11 +37,7 @@ const WebsiteScroll = () => {
                 width: `${scrollWidth}%`,
                 bgcolor: 'green'
             }}
-        >
-
-        </Box>
-
-
+                />
     )
 }
 
