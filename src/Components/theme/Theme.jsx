@@ -8,6 +8,8 @@ const Theme = createTheme({
     },
 
     background: {
+      primary : "#000814",
+      secondary: '#6B757D',
       mainGradient: "linear-gradient(30deg, purple, rgb(202, 16, 72))",
     },
   },

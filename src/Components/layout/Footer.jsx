@@ -10,19 +10,17 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Button from '@mui/material/Button';
 
-const Footer = () => {
 
-  const form = useRef()
+const Footer = ({ ref }) => {
 
-  const [selectedValue, setSelectedValue] = React.useState('a');
+  const form = useRef();
 
-  const handleChange = (event) => {
-    setSelectedValue(event.target.value);
-  };
+
 
   return (
     <Box
       component="footer"
+      ref={ref}
       sx={{
         bgcolor: '#11171D',
         borderTop: '2px solid white',
@@ -32,7 +30,7 @@ const Footer = () => {
       <Container>
         <Grid container maxWidth={"lg"} >
           <Grid
-            size={6}
+            size={{xs: 12 , md: 6}}
             component="form"
             aria-label='Contact Form Of The Portfolio'
 
@@ -48,6 +46,36 @@ const Footer = () => {
               required
               label="Email"
               variant="outlined"
+              type='email'
+              InputLabelProps={{ shrink: true }}
+              // disabled
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  '& fieldset': {
+                    borderColor: 'white',
+                    borderWidth: '1px',
+                  },
+                  '&.Mui-focused fieldset': {
+                    borderColor: 'white',
+                  },
+                },
+                input: {
+                  color: 'white',
+                },
+                label: {
+                  color: 'white',
+                  '&.Mui-focused': {
+                    color: 'white'
+                  }
+                }
+
+              }}
+            />  <TextField
+              required
+              label="Name"
+              variant="outlined"
+              type='text'
+              // disabled
               InputLabelProps={{ shrink: true }}
               sx={{
                 '& .MuiOutlinedInput-root': {
@@ -72,7 +100,7 @@ const Footer = () => {
               }}
             />
 
-            <TextField name='user_name' label="name" varient="outlined" required />
+            {/* <TextField name='user_name' label="name" varient="outlined" required /> */}
 
 
             <RadioGroup
@@ -82,8 +110,11 @@ const Footer = () => {
             >
               <FormControlLabel value="female" control={<Radio />} label="Female" />
               <FormControlLabel value="male" control={<Radio />} label="Male" />
-              <FormControlLabel value="other" control={<Radio />} label="Other" />
             </RadioGroup>
+
+
+            {/* <Textarea name="Solid" placeholder="Type in here…" variant="solid" /> */}
+
 
             <Button
               type='submit'
@@ -96,11 +127,14 @@ const Footer = () => {
             </Button>
 
 
+
+
+
           </Grid>
         </Grid>
       </Container>
 
-
+~
     </Box>
   )
 }

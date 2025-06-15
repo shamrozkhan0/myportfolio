@@ -23,6 +23,7 @@ const ProjectCard = ({ Heading, Headline, Features, Skill, ButtonLink }) => {
             height: "100%",
             boxShadow: "2px 2px 100px 3px #360441  ",
             borderRadius: "10px",
+            bgcolor:(theme) => theme.palette.background.primary
           }}
         >
           <Box

@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState} from "react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import "./App.css";
 
@@ -11,37 +11,37 @@ import Skill from "@/Components/layout/Skill";
 import Projects from "./Components/layout/Projects";
 import Footer from "./Components/layout/Footer";
 
-
-
 function App() {
   const aboutRef = useRef(null);
   const skillRef = useRef(null);
   const projectsRef = useRef(null);
+  const hireRef = useRef(null);
 
   const [activeSection, setActiveSection] = useState("about");
 
-useEffect(() => {
-  const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: .6, // 60% of section must be visible to be "active"
-  };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        setActiveSection(entry.target.id);
-      }
-    });
-  }, options);
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.6, // 60% of section must be visible to be "active"
+    };
 
-  const sections = [aboutRef, skillRef, projectsRef];
-  sections.forEach(ref => observer.observe(ref.current));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, options);
 
-  return () => {
-    sections.forEach(ref => observer.unobserve(ref.current));
-  };
-}, []); 
+    const sections = [aboutRef, skillRef, projectsRef];
+    sections.forEach((ref) => observer.observe(ref.current));
+
+    return () => {
+      sections.forEach((ref) => observer.unobserve(ref.current));
+    };
+  }, []);
 
   return (
     <>
@@ -49,8 +49,13 @@ useEffect(() => {
         <CssBaseline />
         <WebsiteScroll />
 
+
         <Navbar
           activeSection={activeSection}
+          hire={()=>{
+            hireRef.current.scrollIntoView({ behavior: "smooth" });
+            setActiveSection("hire");
+          }}
           onButtonClick={{
             about: () => {
               aboutRef.current.scrollIntoView({ behavior: "smooth" });
@@ -70,8 +75,7 @@ useEffect(() => {
         <Banner ref={aboutRef} />
         <Skill ref={skillRef} />
         <Projects ref={projectsRef} />
-        <Footer/>
-
+        <Footer ref={hireRef}/>
       </ThemeProvider>
     </>
   );

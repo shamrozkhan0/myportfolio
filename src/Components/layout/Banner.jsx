@@ -1,18 +1,27 @@
 // MUI Components 
 import Container from "@mui/material/Container";
-import Box  from "@mui/material/Box";
+import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 
 // MUI Icons (Socials)
-import LinkedIn  from "@mui/icons-material/LinkedIn";
-import GitHub  from "@mui/icons-material/GitHub";
+import LinkedIn from "@mui/icons-material/LinkedIn";
+import GitHub from "@mui/icons-material/GitHub";
 import Download from "@mui/icons-material/Download";
 
+// Framer-Motion Imports
+import { motion } from 'framer-motion'
+
 // Custom Imports
-import BannerProfie from "@/assets/images/shamroz.avif";
+import BannerProfie from "@/assets/images/profile-bg.png";
 import ShifterIcon from "@/components/common/ShifterIconSVG";
+import PurpleButton from "@/components/common/PurpleButton";
+
+import BgImage from "../../assets/images/star-background.png"
+
+const MotionGrid = motion(Grid)
+
 
 const BannerLinks = [
   {
@@ -55,7 +64,7 @@ const Bannerr = ({ ref }) => {
         flexDirection: { xs: "column", lg: "row" },
       }}
     >
-      <Grid container>
+      <Grid container sx={{ justifyContent: 'center' }}>
         <Grid
           size={{ xs: 12, md: 6 }}
           sx={{
@@ -90,7 +99,13 @@ const Bannerr = ({ ref }) => {
             Shamroz Khan
           </Typography>
 
-          <Typography
+
+
+          <PurpleButton Title="Hire ME" />
+
+
+
+          {/* <Typography
             component={"p"}
             variant="body1"
             color="text.secondary"
@@ -104,7 +119,7 @@ const Bannerr = ({ ref }) => {
             Hey I am a full stack java developer working on the Spring Boot
             stack building scalable, robust web-application and secure API end
             points
-          </Typography>
+          </Typography> */}
         </Grid>
 
         <Grid
@@ -121,7 +136,7 @@ const Bannerr = ({ ref }) => {
             flexDirection: { xs: "column", md: "column-reverse", lg: "row" },
           }}
         >
-          <Grid
+          <MotionGrid
             size={{ xs: 12, lg: 4 }}
             sx={{
               position: "relative",
@@ -129,6 +144,7 @@ const Bannerr = ({ ref }) => {
               flexDirection: { xs: "row", lg: "column" },
               justifyContent: { xs: 'center', md: "end" },
               gap: 5,
+
             }}
           >
             {BannerLinks.map(
@@ -162,12 +178,13 @@ const Bannerr = ({ ref }) => {
                 </IconButton>
               )
             )}
-          </Grid>
+          </MotionGrid>
 
           <Grid
             size={{ xs: 12, lg: 8 }}
             sx={{
-              backgroundImage: (theme) => theme.palette.background.mainGradient,
+              boxShadow: "2px 2px 100px 4px #360441  ",
+              background: theme => theme.palette.background.mainGradient,
               borderRadius: "100%",
               display: "flex",
               alignItems: "center",
@@ -175,7 +192,6 @@ const Bannerr = ({ ref }) => {
               overflow: "hidden",
               maxWidth: { xs: "250px", md: "400px" },
               maxHeight: { xs: "250px", md: "400px" },
-              boxShadow: "2px 2px 10px 0px  rgba(178, 11, 89, 0.54)",
             }}
           >
             <Box
@@ -189,6 +205,33 @@ const Bannerr = ({ ref }) => {
             />
           </Grid>
         </Grid>
+
+
+        <Grid size={{ xs: 12, md: 10 }} sx={{ pt: 20, display: "flex", flexDirection: 'column', gap: 5 }}>
+
+          <Typography component="h3" sx={{ textAlign: 'center' }} fontSize={{ fontSize: 35, fontWeight: 700 }}>
+            About Shamroz
+          </Typography>
+
+
+
+          <Typography
+            component="p"
+            sx={{
+              textAlign: 'center',
+              fontSize: 30,
+              fontWeight: 500,
+              color: theme => theme.palette.text.secondary
+            }}
+          >
+             I am a full stack java developer working on the Spring
+            stack building scalable, robust web-application and secure API end points.
+          </Typography>
+
+
+        </Grid>
+
+
       </Grid>
     </Container>
   );

@@ -6,6 +6,7 @@
 
 body {
   background-color: #000814 !important;
+  background-image: url(../src/assets/images/star-background.png);
 }
 
 body::-webkit-scrollbar {

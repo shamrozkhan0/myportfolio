@@ -11,7 +11,7 @@ import PurpleButton from "@/components/common/PurpleButton";
 
 const NavLinks = ["About", "Skills", "Projects"];
 
-const Navbar = ({ activeSection, onButtonClick }) => {
+const Navbar = ({ hire, activeSection, onButtonClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -22,11 +22,11 @@ const Navbar = ({ activeSection, onButtonClick }) => {
         display: "flex",
         alignItems: "center",
         flexDirection: { xs: "column", md: "row" },
-        bgcolor: "#000814",
+        bgcolor: "transparent",
         borderRadius: { xs: 0, md: 10 },
         py: 1,
         position: 'sticky',
-        top: { xs: 0, md: 15 },
+        top: { xs: 0, md: 20 },
         left: 0,
         gap: 0,
         zIndex: 1,
@@ -89,7 +89,7 @@ const Navbar = ({ activeSection, onButtonClick }) => {
             top: 0,
             py: isMenuOpen ? 2 : 0,
             px: { xs: 1, md: 0 },
-            bgcolor: "#000814",
+            bgcolor: "transparent",
           }}
         >
 
@@ -114,7 +114,7 @@ const Navbar = ({ activeSection, onButtonClick }) => {
             </Button>
           ))}
 
-          <PurpleButton responsiveWidth={true} Title="HIRE ME" />
+          {/* <PurpleButton event={hire} responsiveWidth={true} ClickEvent Title="HIRE ME" /> */}
         </Box>
       </Box>
 
