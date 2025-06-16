@@ -50,7 +50,7 @@ const Projects = ({ ref }) => {
             >
                 <Heading SectionHeading="Projects" />
 
-                <Grid sx={{pt:{xs:0 , md:3, justifyContent:'start'}}} container direction={"row"}>
+                <Grid sx={{ pt: { xs: 0, md: 3, justifyContent: 'start' } }} container direction={"row"}>
 
                     <ProjectCard
                         Heading="LimlyDocx"
@@ -58,6 +58,7 @@ const Projects = ({ ref }) => {
                         Features={LimlydocxData.Features}
                         Skill={LimlydocxData.Skills}
                         ButtonLink={LimlydocxData.GithubLink}
+                        ImageDescription="LimlyDocx project login page"
                     />
 
 

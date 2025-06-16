@@ -68,6 +68,18 @@ const SkillsProgress = React.memo(({ skill }) => {
           {skill.map((imageName) => {
             const isDarkIcon = imageName === "express";
             return (
+              // <img
+              //   src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${imageName}/${imageName}-original.svg`}
+              //   alt={`${imageName}-icon`}
+              //   key={imageName}
+              //   loading="lazy"
+              //   style={{
+              //     width: "60px",
+              //     height: "60px",
+              //     filter: `${isDarkIcon ? "invert(1)" : ""} drop-shadow(0 0 30px rgba(100, 18, 116, 0.59))`,
+              //   }}
+              // />
+
               <img
                 src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${imageName}/${imageName}-original.svg`}
                 alt={`${imageName}-icon`}
@@ -76,9 +88,7 @@ const SkillsProgress = React.memo(({ skill }) => {
                 style={{
                   width: "60px",
                   height: "60px",
-                  filter: `${isDarkIcon ? "invert(1)" : ""} drop-shadow(0 0 30px rgba(100, 18, 116, 0.59))`,
-                  // filter: `${isDarkIcon ? "invert(1)" : ""} drop-shadow(0 0 30px rgb(37, 3, 44))`
-
+                  filter: `${imageName === "express" ? "invert(1)" : ""} drop-shadow(0 0 6px #9119ac)`,
                 }}
               />
             );

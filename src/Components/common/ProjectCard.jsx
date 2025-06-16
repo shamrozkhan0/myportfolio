@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import LimlyDocxImage from "@/assets/images/limlydocx-login.png";
 import CardButton from "./CardButton";
 
-const ProjectCard = ({ Heading, Headline, Features, Skill, ButtonLink }) => {
+const ProjectCard = ({ Heading, Headline, Features, Skill, ButtonLink, ImageDescription }) => {
   return (
     <>
       <Grid
@@ -26,11 +26,11 @@ const ProjectCard = ({ Heading, Headline, Features, Skill, ButtonLink }) => {
             bgcolor:(theme) => theme.palette.background.primary
           }}
         >
-          <Box
-            component="img"
+          <img
             src={LimlyDocxImage}
             loading="lazy"
-            sx={{
+            alt={ImageDescription}
+            style={{
               width: "100%",
               height: "100%",
               borderRadius: "10px 10px 0 0",

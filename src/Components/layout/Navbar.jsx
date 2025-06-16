@@ -1,13 +1,12 @@
 import { useState } from "react";
 
 import Container from "@mui/material/Container";
-import Box  from "@mui/material/Box";
+import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
-import Menu  from "@mui/icons-material/Menu";
-import PurpleButton from "@/components/common/PurpleButton";
+import Menu from "@mui/icons-material/Menu";
 
 const NavLinks = ["About", "Skills", "Projects"];
 
@@ -17,12 +16,14 @@ const Navbar = ({ hire, activeSection, onButtonClick }) => {
   return (
     <Container
       component="nav"
-      // maxWidth="lg"
       sx={{
+        px: {xs: "0px !important" , md: "30px !important"},
         display: "flex",
         alignItems: "center",
         flexDirection: { xs: "column", md: "row" },
-        bgcolor: "transparent",
+        // bgcolor: { xs: "#000814", md: 'transparent' },
+        bgcolor: "#000814",
+        border:{xs: 0 , md: "1px solid #ffffff26"},
         borderRadius: { xs: 0, md: 10 },
         py: 1,
         position: 'sticky',
@@ -34,6 +35,7 @@ const Navbar = ({ hire, activeSection, onButtonClick }) => {
     >
       <Box
         sx={{
+          px:{xs:2 , lg: 0},
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -83,13 +85,14 @@ const Navbar = ({ hire, activeSection, onButtonClick }) => {
             gap: { xs: 3, md: 6 },
             width: "100%",
             flexDirection: { xs: "column", md: "row" },
-            height: { xs: isMenuOpen ? "230px" : "0px", md: "100%" },
+            height: { xs: isMenuOpen ? "150px" : "0px", md: "100%" },
             overflow: "hidden",
             transition: "all 0.5s ease",
             top: 0,
             py: isMenuOpen ? 2 : 0,
-            px: { xs: 1, md: 0 },
-            bgcolor: "transparent",
+            // px: { xs: 1, md: 0 },
+            bgcolor: { xs: "#000814", md: 'transparent' },
+            px:{xs: 2 , lg: 0},
           }}
         >
 
