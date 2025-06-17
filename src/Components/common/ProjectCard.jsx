@@ -4,10 +4,17 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
 // Custom Imports
-import LimlyDocxImage from "@/assets/images/limlydocx-login.png";
 import CardButton from "./CardButton";
 
-const ProjectCard = ({ Heading, Headline, Features, Skill, ButtonLink, ImageDescription }) => {
+const ProjectCard = ({
+  Image,
+  Heading,
+  Headline,
+  Features,
+  Skill,
+  ButtonLink,
+  ImageDescription,
+}) => {
   return (
     <>
       <Grid
@@ -23,11 +30,11 @@ const ProjectCard = ({ Heading, Headline, Features, Skill, ButtonLink, ImageDesc
             height: "100%",
             boxShadow: "2px 2px 100px 3px #360441  ",
             borderRadius: "10px",
-            bgcolor:(theme) => theme.palette.background.primary
+            bgcolor: (theme) => theme.palette.background.primary,
           }}
         >
           <img
-            src={LimlyDocxImage}
+            src={Image}
             loading="lazy"
             alt={ImageDescription}
             style={{

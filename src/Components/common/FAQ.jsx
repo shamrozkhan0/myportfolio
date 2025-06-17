@@ -1,5 +1,3 @@
-import React from 'react';
-
 // MUI Components
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -12,7 +10,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 // Custom CSS
 import '@/styles/Components/ContactForm.css'
 
-const FAQ = ({ heading, text, expanded, onChange }) => {
+const Faq = ({ heading, text, expanded, onChange }) => {
   return (
     <Accordion
       className="faq-accordion"
@@ -40,4 +38,4 @@ const FAQ = ({ heading, text, expanded, onChange }) => {
   );
 };
 
-export default FAQ;
+export default Faq;

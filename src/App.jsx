@@ -10,7 +10,7 @@ import Navbar from "@/Components/layout/Navbar";
 import Banner from "@/Components/layout/Banner";
 import Skill from "@/Components/layout/Skill";
 import Projects from "@/Components/layout/Projects";
-import ContactForm from "@/Components/layout/ContactForm";
+import Faqs from "@/Components/layout/Faqs";
 
 function App() {
   const projectsRef = useRef(null);
@@ -96,7 +96,7 @@ function App() {
         <Banner ref={aboutRef} />
         <Skill ref={skillRef} />
         <Projects ref={projectsRef} />
-        <ContactForm ref={faqRef} />
+        <Faqs ref={faqRef} />
       </ThemeProvider>
     </>
   );

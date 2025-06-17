@@ -6,7 +6,12 @@ import Grid from "@mui/material/Grid";
 import Heading from "../common/Heading";
 import ProjectCard from "../common/ProjectCard";
 
+// Imports Images
+import LimlydocxImage from "@/assets/images/limlydocx-login.png"
+
 const LimlydocxData = {
+
+    Image: LimlydocxImage,
 
     GithubLink: "https://github.com/shamrozkhan0/limlydocx",
 
@@ -52,6 +57,7 @@ const Projects = ({ ref }) => {
                 <Grid sx={{ pt: { xs: 0, md: 3, justifyContent: 'start' } }} container direction={"row"}>
 
                     <ProjectCard
+                        Image={LimlydocxData.Image}
                         Heading="LimlyDocx"
                         Headline="A cloud based collaborative text editor"
                         Features={LimlydocxData.Features}

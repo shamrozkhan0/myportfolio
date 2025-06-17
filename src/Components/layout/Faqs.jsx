@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 
 // Custom Components
-import FAQ from '../common/FAQ';
+import FAQ from '../common/Faq';
 import Heading from '../common/Heading';
 
 const faqData = [
@@ -15,7 +15,7 @@ const faqData = [
   { question: "Do you write backend APIs from scratch?", answer: "Yes. I write custom REST APIs using Express or Spring Boot with proper structure, error handling, and response formatting." }
 ];
 
-const ContactForm = ({ ref }) => {
+const Faqs = ({ ref }) => {
   const [expandedIndex, setExpandedIndex] = useState(null);
 
   const handleChange = (index) => (_, isExpanded) => {
@@ -39,4 +39,4 @@ const ContactForm = ({ ref }) => {
   );
 };
 
-export default ContactForm;
+export default Faqs;
