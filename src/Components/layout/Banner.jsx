@@ -48,7 +48,7 @@ const BannerLinks = [
   },
 ];
 
-const Bannerr = ({ ref }) => {
+const Bannerr = ({ ref, hireRef }) => {
   return (
     <Container
       id="about"
@@ -98,7 +98,7 @@ const Bannerr = ({ ref }) => {
 
 
 
-          <PurpleButton Title="Hire ME" />
+          <PurpleButton title="Let's Talk" clickEvent={hireRef}  />
 
         </Grid>
 
@@ -187,7 +187,7 @@ const Bannerr = ({ ref }) => {
         </Grid>
 
 
-        <Grid size={{ xs: 12, md: 10 }} sx={{ pt: {xs: 5 , md: 15}, display: "flex", flexDirection: 'column', gap: {xs: 2 ,md: 5} }}>
+        <Grid size={{ xs: 12, md: 10 }} sx={{ pt: {xs: 5 , md: 15}, display: "flex", flexDirection: 'column', gap: {xs: 2 ,md: 3} }}>
 
           <Typography component="h3" sx={{ textAlign: 'center' }} fontSize={{ fontSize: 35, fontWeight: 700 }}>
             About Shamroz

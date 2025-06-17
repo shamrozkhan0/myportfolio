@@ -11,9 +11,12 @@ body {
 
 body::-webkit-scrollbar {
   display: none;
+  scroll-behavior: smooth;
+  transition: all ease .5s;
 }
 
 .blabla {
   border-radius: 376px;
   background: url(../src/assets/images/limlydocx-login.png)lightgray -390.034px 0.5px / 209.095% 100% no-repeat;
 }
+

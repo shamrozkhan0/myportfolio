@@ -10,6 +10,7 @@ const Theme = createTheme({
     background: {
       primary : "#000814",
       secondary: '#6B757D',
+      faqBg: "#00000029",
       mainGradient: "linear-gradient(30deg, purple, rgb(202, 16, 72))",
     },
   },

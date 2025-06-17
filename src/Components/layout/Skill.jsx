@@ -14,6 +14,7 @@ const FrontendSkillImagesCDN = [
   "javascript",
   "react",
   "bootstrap",
+  "redux",
   "materialui",
   "vitejs",
   "vscode",
@@ -49,9 +50,6 @@ const SkillsProgress = React.memo(({ skill }) => {
           borderRadius: 5,
           px: { xs: 2, xl: 5 },
           py: 3,
-          // boxShadow: "0px 0px  100px rgba(173, 9, 94, 0.28) ",
-          // boxShadow: "2px 2px 100px 4px #360441  ",
-          // bgcolor: "rgba(20, 16, 16, 0.12)",
           width: { xs: "100%", sm: "auto" },
         }}
       >
@@ -68,18 +66,6 @@ const SkillsProgress = React.memo(({ skill }) => {
           {skill.map((imageName) => {
             const isDarkIcon = imageName === "express";
             return (
-              // <img
-              //   src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${imageName}/${imageName}-original.svg`}
-              //   alt={`${imageName}-icon`}
-              //   key={imageName}
-              //   loading="lazy"
-              //   style={{
-              //     width: "60px",
-              //     height: "60px",
-              //     filter: `${isDarkIcon ? "invert(1)" : ""} drop-shadow(0 0 30px rgba(100, 18, 116, 0.59))`,
-              //   }}
-              // />
-
               <img
                 src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${imageName}/${imageName}-original.svg`}
                 alt={`${imageName}-icon`}
@@ -93,8 +79,6 @@ const SkillsProgress = React.memo(({ skill }) => {
               />
             );
           })}
-
-
         </Box>
       </Box>
     </>

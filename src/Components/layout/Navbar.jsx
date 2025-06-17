@@ -1,33 +1,40 @@
-import { useState } from "react";
+import { useState} from "react";
 
+// MUI COmpoenents
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
+// MUI Icon
 import Menu from "@mui/icons-material/Menu";
 
-const NavLinks = ["About", "Skills", "Projects"];
+const NavLinks = ["About", "Skills", "Projects","FAQ" ];
 
-const Navbar = ({ hire, activeSection, onButtonClick }) => {
+const Navbar = ({ activeSection, onButtonClick, scrollValue }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const isScrolling = scrollValue > 0; 
 
   return (
     <Container
       component="nav"
       sx={{
-        px: {xs: "0px !important" , md: "30px !important"},
+        transition: "all ease .3s",
+        px: { xs: "0px !important", md: "30px !important" },
         display: "flex",
         alignItems: "center",
         flexDirection: { xs: "column", md: "row" },
-        // bgcolor: { xs: "#000814", md: 'transparent' },
-        bgcolor: "#000814",
-        border:{xs: 0 , md: "1px solid #ffffff26"},
+        bgcolor: isScrolling ? "#000814" : "#00081400",
+        border: {
+          xs: 0,
+          md: `1px solid ${isScrolling ? "#ffffff26" : "#ffffff00"}`,
+        },
         borderRadius: { xs: 0, md: 10 },
         py: 1,
-        position: 'sticky',
-        top: { xs: 0, md: 20 },
+        position: "sticky",
+        top: { xs: 0, md: 5 },
         left: 0,
         gap: 0,
         zIndex: 1,
@@ -35,7 +42,7 @@ const Navbar = ({ hire, activeSection, onButtonClick }) => {
     >
       <Box
         sx={{
-          px:{xs:2 , lg: 0},
+          px: { xs: 2, lg: 0 },
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -66,14 +73,13 @@ const Navbar = ({ hire, activeSection, onButtonClick }) => {
         </IconButton>
       </Box>
 
-
       <Box
         sx={{
-          position: 'relative',
-          width: { xs: '100%', md: '70%' },
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'end',
+          position: "relative",
+          width: { xs: "100%", md: "70%" },
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "end",
         }}
       >
         <Box
@@ -90,18 +96,22 @@ const Navbar = ({ hire, activeSection, onButtonClick }) => {
             transition: "all 0.5s ease",
             top: 0,
             py: isMenuOpen ? 2 : 0,
-            // px: { xs: 1, md: 0 },
-            bgcolor: { xs: "#000814", md: 'transparent' },
-            px:{xs: 2 , lg: 0},
+            bgcolor: { xs: "#000814", md: "transparent" },
+            px: { xs: 2, lg: 0 },
           }}
         >
-
           {NavLinks.map((title) => (
             <Button
               key={title}
               sx={{
-                color: activeSection == title.toLowerCase() ? "rgb(255, 0, 128)" : "white",
-                borderBottom: activeSection == title.toLowerCase() ? "1px solid rgb(255, 0, 128)" : "1px solid transparent",
+                color:
+                  activeSection == title.toLowerCase()
+                    ? "rgb(255, 0, 128)"
+                    : "white",
+                borderBottom:
+                  activeSection == title.toLowerCase()
+                    ? "1px solid rgb(255, 0, 128)"
+                    : "1px solid transparent",
                 fontSize: 16,
                 letterSpacing: 1,
                 p: 0,
@@ -117,11 +127,8 @@ const Navbar = ({ hire, activeSection, onButtonClick }) => {
             </Button>
           ))}
 
-          {/* <PurpleButton event={hire} responsiveWidth={true} ClickEvent Title="HIRE ME" /> */}
         </Box>
       </Box>
-
-
     </Container>
   );
 };

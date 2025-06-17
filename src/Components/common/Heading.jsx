@@ -9,6 +9,7 @@ const Heading = ({SectionHeading}) => {
                 justifyContent: "space-between",
                 flexDirection: { xs: "column-reverse", md: "row" },
                 gap: { xs: 5, md: 0 },
+                width:'100%'
             }}
         >
             <Typography
@@ -16,7 +17,7 @@ const Heading = ({SectionHeading}) => {
                 variant="h2"
                 sx={{
                     fontWeight: "600",
-                    fontSize:{xs:50, md: 30}
+                    fontSize:{xs:30, md: 30}
                 }}
             >
                 {SectionHeading}
