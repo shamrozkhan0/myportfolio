@@ -5,8 +5,10 @@
 }
 
 body {
-  background-color: #000814 !important;
+  /* background-color: #000814 !important; */
+  background-color: #000000 !important;
   background-image: url(../src/assets/images/star-background.png);
+  transition: all ease .5s;
 }
 
 body::-webkit-scrollbar {

@@ -18,7 +18,7 @@ import PurpleButton from "@/components/common/PurpleButton";
 
 const BannerLinks = [
   {
-    IconName:"resume",
+    IconName: "resume",
     icon: <Download sx={{ fontSize: 30 }} />,
     url: "../../assets/images/shamroz.png",
     top: 0,
@@ -26,21 +26,21 @@ const BannerLinks = [
     isDownload: true,
   },
   {
-    IconName:"shifters.dev",
+    IconName: "shifters.dev",
     icon: <ShifterIcon size={30} />,
     url: "https://shifters.dev/shamrozkhan",
     bottom: 0,
     right: 0,
   },
   {
-    IconName:"linkedin",
+    IconName: "linkedin",
     icon: <LinkedIn sx={{ fontSize: 30 }} />,
     url: "https://www.linkedin.com/in/shamrozkhan0/",
     top: 100,
     left: 30,
   },
   {
-    IconName:'github',
+    IconName: 'github',
     icon: <GitHub sx={{ fontSize: 30 }} />,
     url: "https://github.com/shamrozkhan0/",
     bottom: 100,
@@ -56,11 +56,29 @@ const Bannerr = ({ ref, hireRef }) => {
       aria-label="About Section Of Shamroz Khan's Portfolio"
       ref={ref}
       sx={{
-        pt: { xs: 5, md: 15, lg: 15 },
+        pt: { xs: 5, md: 15, lg: 20 },
         pb: { xs: 2, md: 5, lg: 10 },
         flexDirection: { xs: "column", lg: "row" },
       }}
     >
+
+      {/* <Box sx={{
+        position: 'absolute',
+        width: '100px',
+        height: '600px',
+        bgcolor: 'purple',
+        zIndex:-1,
+        rotate:'40deg',
+        top:0,
+        right:0
+        
+
+
+
+      }}>
+
+      </Box> */}
+
       <Grid container sx={{ justifyContent: 'center' }}>
         <Grid
           size={{ xs: 12, md: 6 }}
@@ -98,7 +116,7 @@ const Bannerr = ({ ref, hireRef }) => {
 
 
 
-          <PurpleButton title="Let's Talk" clickEvent={hireRef}  />
+          <PurpleButton title="Let's Talk" clickEvent={hireRef} />
 
         </Grid>
 
@@ -187,7 +205,7 @@ const Bannerr = ({ ref, hireRef }) => {
         </Grid>
 
 
-        <Grid size={{ xs: 12, md: 10 }} sx={{ pt: {xs: 5 , md: 15}, display: "flex", flexDirection: 'column', gap: {xs: 2 ,md: 3} }}>
+        <Grid size={{ xs: 12, md: 10 }} sx={{ pt: { xs: 5, md: 15 }, display: "flex", flexDirection: 'column', gap: { xs: 2, md: 3 } }}>
 
           <Typography component="h3" sx={{ textAlign: 'center' }} fontSize={{ fontSize: 35, fontWeight: 700 }}>
             About Shamroz
@@ -197,14 +215,14 @@ const Bannerr = ({ ref, hireRef }) => {
           <Typography
             component="p"
             sx={{
-              textAlign:"center",
-              fontSize: {xs: 20 ,md : 30},
+              textAlign: "center",
+              fontSize: { xs: 20, md: 30 },
 
               fontWeight: 500,
               color: theme => theme.palette.text.secondary
             }}
           >
-             I am a full stack java developer working on the Spring
+            I am a full stack java developer working on the Spring
             stack building scalable, robust web-application and secure API end points.
           </Typography>
 

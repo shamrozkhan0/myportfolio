@@ -15,11 +15,40 @@
   <!-- ==================================== -->
   <title>Shamroz Khan | Full Stack Java Developer</title>
 </head>
+<style>
+  #preloader {
+    background: #0f0f0f;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1s ease;
+    font-family: 'Montserrat', 'san-serif';
+  }
+
+  #preloader.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>
 
 <body>
+  <div id="preloader">
+    <h1 style="color:white; text-align:center; font-size: 30px;">Welcome to Shamroz's Portfolio 🚀
+    </h1>
+  </div>
   <div id="root"></div>
   <!-- <script src="https://kit.fontawesome.com/0a7c965840.js" crossorigin="anonymous"></script> -->
   <script type="module" src="/src/main.jsx"></script>
+  <script>
+    document.addEventListener("mousemove", (e) => {
+      const x = (e.clientX / window.innerWidth) * -5;  // adjust multiplier for strength
+      const y = (e.clientY / window.innerHeight) * 5;
+      document.body.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
+    });
+  </script>
 </body>
 
 </html>

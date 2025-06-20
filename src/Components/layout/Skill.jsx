@@ -5,8 +5,12 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 
+// FramerMotion Compoenent
+import { motion } from "framer-motion"; 
+
 // Custom Import
 import Heading from "../common/Heading";
+import { duration } from "@mui/material";
 
 const FrontendSkillImagesCDN = [
   "html5",
@@ -63,10 +67,20 @@ const SkillsProgress = React.memo(({ skill }) => {
             alignItems: "center",
           }}
         >
-          {skill.map((imageName) => {
+
+          
+          {skill.map((imageName, index) => {
+            const timer = 0.1
+            const delay = index * 0.2;
             const isDarkIcon = imageName === "express";
             return (
-              <img
+              <motion.img
+
+              initial={{opacity:0}}
+              whileInView={{opacity:1}}
+              viewport={{once:true}}
+              transition={{ delay : delay ,duration: .5, ease:"ease"  }}
+              
                 src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${imageName}/${imageName}-original.svg`}
                 alt={`${imageName}-icon`}
                 key={imageName}

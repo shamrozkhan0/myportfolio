@@ -40,4 +40,12 @@ const Theme = createTheme({
   },
 });
 
+    {/* <a
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=youremail@gmail.com&su=Let's%20Work%20Together&body=Hi%20Shamroz,%0AI%20saw%20your%20portfolio..."
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  CLICK ME
+</a> */}
+
 export default Theme;

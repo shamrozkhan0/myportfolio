@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState } from "react";
 
 // MUI COmpoenents
 import Container from "@mui/material/Container";
@@ -10,32 +10,34 @@ import Button from "@mui/material/Button";
 // MUI Icon
 import Menu from "@mui/icons-material/Menu";
 
-const NavLinks = ["About", "Skills", "Projects","FAQ" ];
+const NavLinks = ["About", "Skills", "Projects", "FAQ"];
 
 const Navbar = ({ activeSection, onButtonClick, scrollValue }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const isScrolling = scrollValue > 0; 
+  const isScrolling = scrollValue > 0.6;
 
   return (
     <Container
       component="nav"
       sx={{
-        transition: "all ease .3s",
+        maxWidth: isScrolling ? '50% !important': '100%',
+        transition: "all ease .5s",
         px: { xs: "0px !important", md: "30px !important" },
         display: "flex",
         alignItems: "center",
         flexDirection: { xs: "column", md: "row" },
-        bgcolor: isScrolling ? "#000814" : "#00081400",
+        bgcolor: isScrolling ? "#000b1c" : "#00081400",
         border: {
           xs: 0,
           md: `1px solid ${isScrolling ? "#ffffff26" : "#ffffff00"}`,
         },
         borderRadius: { xs: 0, md: 10 },
         py: 1,
-        position: "sticky",
-        top: { xs: 0, md: 5 },
-        left: 0,
+        position: "fixed",
+        top: { xs: 0, md: 15 },
+        left: '50%',
+        transform:'translateX(-50%)',
         gap: 0,
         zIndex: 1,
       }}
@@ -106,13 +108,13 @@ const Navbar = ({ activeSection, onButtonClick, scrollValue }) => {
               sx={{
                 color:
                   activeSection == title.toLowerCase()
-                    ? "rgb(255, 0, 128)"
+                    ? "pink"
                     : "white",
                 borderBottom:
                   activeSection == title.toLowerCase()
-                    ? "1px solid rgb(255, 0, 128)"
+                    ? "1px solid pink"
                     : "1px solid transparent",
-                fontSize: 16,
+                fontSize: 15,
                 letterSpacing: 1,
                 p: 0,
                 borderRadius: 0,
@@ -123,7 +125,7 @@ const Navbar = ({ activeSection, onButtonClick, scrollValue }) => {
                 if (onButtonClick[key]) onButtonClick[key]();
               }}
             >
-              <Typography variant="button">{title}</Typography>
+              {title}
             </Button>
           ))}
 

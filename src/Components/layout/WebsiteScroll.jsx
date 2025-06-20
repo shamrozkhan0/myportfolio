@@ -14,7 +14,7 @@ const WebsiteScroll = ({scrollValue}) => {
                 position: "fixed",
                 bgcolor:'gray' ,
                 top: "50%",
-                right: {xs: 10 , xl: 20},
+                left: {xs: 10 , xl: 20},
                 transform: "translateY(-50%)",
                 borderRadius: 10,
                 overflow: "hidden",

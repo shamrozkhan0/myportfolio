@@ -11,6 +11,11 @@ import Banner from "@/Components/layout/Banner";
 import Skill from "@/Components/layout/Skill";
 import Projects from "@/Components/layout/Projects";
 import Faqs from "@/Components/layout/Faqs";
+import Loader from "./Components/layout/Loader";
+
+
+import Banner2 from "./Components/layout/Banner2";
+
 
 function App() {
   const projectsRef = useRef(null);
@@ -67,37 +72,64 @@ function App() {
     setActiveSection(section);
   }, []);
 
+
+// const [isLoading, setIsLoading] = useState(true);
+// const [isAppReady, setIsAppReady] = useState(false);
+// const [isFadingOut, setIsFadingOut] = useState(false);
+
+
+
+// useEffect(() => {
+//   const loadEverything = async () => {
+//     await document.fonts.ready;
+//     await new Promise((res) => setTimeout(res, 500)); // optional buffer
+//     setIsAppReady(true);
+//   };
+//   loadEverything();
+// }, []);
+
+// useEffect(() => {
+//   if (isAppReady) {
+//     setIsFadingOut(true);
+//     setTimeout(() => setIsLoading(false), 1000); // matches fade-out CSS
+//   }
+// }, [isAppReady]);
+
+  
+
   return (
     <>
-      <ThemeProvider theme={Theme}>
-        <CssBaseline />
 
-        <WebsiteScroll scrollValue={scrollWidth} />
+      {/* <Loader/> */}
 
-        {/* <a
-  href="https://mail.google.com/mail/?view=cm&fs=1&to=youremail@gmail.com&su=Let's%20Work%20Together&body=Hi%20Shamroz,%0AI%20saw%20your%20portfolio..."
-  target="_blank"
-  rel="noopener noreferrer"
->
-  CLICK ME
-</a> */}
+      {/* {isLoading && <Loader />} */}
 
-        <Navbar
-          scrollValue={scrollWidth}
-          activeSection={activeSection}
-          onButtonClick={{
-            about: () => scrollToRef(aboutRef, "about"),
-            skills: () => scrollToRef(skillRef, "skills"),
-            projects: () => scrollToRef(projectsRef, "projects"),
-            faq: () => scrollToRef(faqRef, "faq"),
-          }}
-        />
+      {/* {!isLoading && ( */}
+        <ThemeProvider theme={Theme}>
+          <CssBaseline />
 
-        <Banner ref={aboutRef} />
-        <Skill ref={skillRef} />
-        <Projects ref={projectsRef} />
-        <Faqs ref={faqRef} />
-      </ThemeProvider>
+          <WebsiteScroll scrollValue={scrollWidth} />
+
+
+          <Navbar
+            scrollValue={scrollWidth}
+            activeSection={activeSection}
+            onButtonClick={{
+              about: () => scrollToRef(aboutRef, "about"),
+              skills: () => scrollToRef(skillRef, "skills"),
+              projects: () => scrollToRef(projectsRef, "projects"),
+              faq: () => scrollToRef(faqRef, "faq"),
+            }}
+          />
+
+          {/* <Banner ref={aboutRef} /> */}
+          <Banner2 ref={aboutRef}/>
+          <Skill ref={skillRef} />
+          <Projects ref={projectsRef} />
+          <Faqs ref={faqRef} />
+        </ThemeProvider>
+      {/* )} */}
+
     </>
   );
 }
